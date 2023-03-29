@@ -52,23 +52,51 @@ function tractor() {
   endShape(CLOSE);
   pop();
 
+  //PIPE FROM FRONT
+  fill(50, 50, 50);
+  rect(
+    tractorX + 60 * tractorS,
+    tractorY + 36 * tractorS,
+    7 * tractorS,
+    20 * tractorS
+  );
+  fill(100, 100, 100);
+  rect(
+    tractorX + 61 * tractorS,
+    tractorY + 25 * tractorS,
+    5 * tractorS,
+    10 * tractorS
+  );
+
   //FRONT PART
   push();
   fill(255, 0, 0);
   strokeWeight(2);
   beginShape();
-  vertex(313, 250);
-  vertex(310, 305);
-  vertex(250, 305);
-  vertex(250, 265);
+  vertex(tractorX + 113 * tractorS, tractorY + 50 * tractorS);
+  vertex(tractorX + 110 * tractorS, tractorY + 105 * tractorS);
+  vertex(tractorX + 50 * tractorS, tractorY + 105 * tractorS);
+  vertex(tractorX + 50 * tractorS, tractorY + 65 * tractorS);
   endShape();
+
   beginShape();
-  vertex(310, 250);
-  vertex(280, 250);
-  vertex(230, 265);
-  vertex(232, 305);
-  vertex(250, 305);
-  vertex(255, 270);
+  vertex(tractorX + 110 * tractorS, tractorY + 50 * tractorS);
+  vertex(tractorX + 80 * tractorS, tractorY + 50 * tractorS);
+  vertex(tractorX + 30 * tractorS, tractorY + 65 * tractorS);
+  vertex(tractorX + 32 * tractorS, tractorY + 105 * tractorS);
+  vertex(tractorX + 50 * tractorS, tractorY + 105 * tractorS);
+  vertex(tractorX + 55 * tractorS, tractorY + 68 * tractorS);
+  endShape(CLOSE);
+  pop();
+
+  //GRILL
+  push();
+  fill(50, 50, 50);
+  beginShape();
+  vertex(tractorX + 30 * tractorS, tractorY + 65 * tractorS);
+  vertex(tractorX + 55 * tractorS, tractorY + 68 * tractorS);
+  vertex(tractorX + 53 * tractorS, tractorY + 85 * tractorS);
+  vertex(tractorX + 30 * tractorS, tractorY + 83 * tractorS);
   endShape(CLOSE);
   pop();
 
