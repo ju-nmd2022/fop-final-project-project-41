@@ -4,7 +4,8 @@ let tractorS = 1;
 
 background(255, 255, 255);
 
-//making the tractor
+//-------------------------making the tractor
+
 function tractor() {
   //PART WHERE YOU SIT
   push();
@@ -52,7 +53,8 @@ function tractor() {
   endShape(CLOSE);
   pop();
 
-  //PIPE FROM FRONT
+  //PIPE IN FRONT
+  push();
   fill(50, 50, 50);
   rect(
     tractorX + 60 * tractorS,
@@ -66,6 +68,35 @@ function tractor() {
     tractorY + 25 * tractorS,
     5 * tractorS,
     10 * tractorS
+  );
+  pop();
+
+  //BACK TIRE
+  //dark grey
+  fill(50, 50, 50);
+  strokeWeight(2);
+  ellipse(
+    tractorX + 28 * tractorS,
+    tractorY + 115 * tractorS,
+    35 * tractorS,
+    40 * tractorS
+  );
+  //medium grey
+  fill(150, 150, 150);
+  ellipse(
+    tractorX + 35 * tractorS,
+    tractorY + 115 * tractorS,
+    28 * tractorS,
+    40 * tractorS
+  );
+  //light grey
+  fill(200, 200, 200);
+  strokeWeight(1);
+  ellipse(
+    tractorX + 35 * tractorS,
+    tractorY + 115 * tractorS,
+    9 * tractorS,
+    13 * tractorS
   );
 
   //FRONT PART
@@ -157,6 +188,71 @@ function tractor() {
     tractorX + 150 * tractorS,
     tractorY + 95 * tractorS
   );
+  endShape(CLOSE);
+  //second front tire
+  //dark grey
+  fill(50, 50, 50);
+  ellipse(tractorX + 93 * tractorS, tractorY + 117 * tractorS, 50 * tractorS);
+  //medium grey
+  fill(150, 150, 150);
+  ellipse(
+    tractorX + 100 * tractorS,
+    tractorY + 117 * tractorS,
+    40 * tractorS,
+    50 * tractorS
+  );
+  //light grey
+  fill(200, 200, 200);
+  strokeWeight(1);
+  ellipse(
+    tractorX + 100 * tractorS,
+    tractorY + 117 * tractorS,
+    10 * tractorS,
+    15 * tractorS
+  );
+
+  //PLATE IN FRONT
+  fill(170, 170, 170);
+  strokeWeight(2);
+  rect(
+    tractorX + 30 * tractorS,
+    tractorY + 100 * tractorS,
+    27 * tractorS,
+    10 * tractorS
+  );
+
+  //HEADLIGHTS
+  fill(50, 50, 50);
+  strokeWeight(1);
+  ellipse(tractorX + 65 * tractorS, tractorY + 80 * tractorS, 10 * tractorS);
+  ellipse(tractorX + 30 * tractorS, tractorY + 77 * tractorS, 10 * tractorS);
+  fill(255, 255, 0);
+  ellipse(
+    tractorX + 62 * tractorS,
+    tractorY + 80 * tractorS,
+    7 * tractorS,
+    10 * tractorS
+  );
+  ellipse(
+    tractorX + 28 * tractorS,
+    tractorY + 77 * tractorS,
+    7 * tractorS,
+    10 * tractorS
+  );
+
+  //WINDOWS
+  fill(255, 255, 255);
+  beginShape();
+  vertex(tractorX + 120 * tractorS, tractorY + 5 * tractorS);
+  vertex(tractorX + 90 * tractorS, tractorY + 5 * tractorS);
+  vertex(tractorX + 80 * tractorS, tractorY + 45 * tractorS);
+  vertex(tractorX + 110 * tractorS, tractorY + 45 * tractorS);
+  endShape(CLOSE);
+  beginShape();
+  vertex(tractorX + 130 * tractorS, tractorY + 5 * tractorS);
+  vertex(tractorX + 125 * tractorS, tractorY + 45 * tractorS);
+  vertex(tractorX + 155 * tractorS, tractorY + 40 * tractorS);
+  vertex(tractorX + 155 * tractorS, tractorY + 7 * tractorS);
   endShape(CLOSE);
 }
 
