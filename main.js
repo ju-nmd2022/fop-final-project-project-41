@@ -218,7 +218,8 @@ function tractor() {
     tractorX + 30 * tractorS,
     tractorY + 100 * tractorS,
     27 * tractorS,
-    10 * tractorS
+    10 * tractorS,
+    2
   );
 
   //HEADLIGHTS
@@ -256,4 +257,4 @@ function tractor() {
   endShape(CLOSE);
 }
 
-tractor();
+tractor(translate(0, 0), rotate(0.1));
