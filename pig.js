@@ -12,6 +12,29 @@ let pigS = 1;
 
 function pig() {
   fill(253, 215, 228);
+
+  //NOSE
+  push();
+  translate(pigX, pigY);
+  rotate(-0.8);
+  ellipse(-47, 180, 18, 28);
+  pop();
+
+  //HEAD
+  ellipse(230, 324, 50);
+
+  //EARS
+  beginShape();
+  vertex(240, 310);
+  bezierVertex(250, 300, 250, 320, 255, 338);
+  bezierVertex(235, 330, 240, 325, 240, 320);
+  endShape();
+  beginShape();
+  vertex(220, 305);
+  bezierVertex(215, 295, 205, 300, 200, 315);
+  bezierVertex(210, 314, 214, 312, 215, 307);
+  endShape();
+
   //BACK LEG
   beginShape();
   vertex(178, 378);
@@ -52,7 +75,12 @@ function pig() {
   triangle(235, 392, 240, 385, 235, 385);
   pop();
 
-  //HEAD
+  //TAIL
+  beginShape();
+  vertex(201, 365);
+  bezierVertex(190, 364, 190, 357, 195, 353);
+  bezierVertex(205, 354, 200, 365, 185, 363);
+  endShape();
 }
 
 pig();
