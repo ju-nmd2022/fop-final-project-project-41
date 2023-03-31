@@ -11,6 +11,7 @@ function hay() {
   rect(hayX + hayS, hayY + hayS, 200 * hayS, 100 * hayS, 10);
   line(hayX + hayS, hayY + 85 * hayS, hayX + 200 * hayS, hayY + 85 * hayS);
   pop();
+  //ropes
   push();
   stroke(139, 69, 19);
   strokeWeight(10);
