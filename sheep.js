@@ -8,24 +8,38 @@ let sheepS = 1;
 function sheep() {
   fill(255, 255, 255);
 
+  //HEAD
+  push();
+  fill(240, 234, 214);
+  ellipse(sheepX + 90 * sheepS, sheepY + 183 * sheepS, 40 * sheepS);
+  pop();
+
+  //FEET
+  push();
+  fill(240, 234, 214);
+  rect(sheepX + 30 * sheepS, sheepY + 240 * sheepS, 7 * sheepS, 8 * sheepS);
+  rect(sheepX + 60 * sheepS, sheepY + 240 * sheepS, 7 * sheepS, 10 * sheepS);
+  rect(sheepX + 95 * sheepS, sheepY + 215 * sheepS, 5 * sheepS, 8 * sheepS);
+  pop();
+
   //BODY
   //the fluffy part
   push();
-  ellipse(245, 380, 20);
-  ellipse(233, 385, 15);
-  ellipse(230, 400, 20);
-  ellipse(230, 415, 20);
-  ellipse(230, 425, 10);
-  ellipse(235, 435, 15);
-  ellipse(248, 438, 20);
-  ellipse(265, 438, 20);
-  ellipse(278, 435, 15);
-  ellipse(287, 425, 20);
-  ellipse(294, 415, 10);
-  ellipse(295, 400, 20);
-  ellipse(290, 385, 15);
-  ellipse(275, 375, 20);
-  ellipse(260, 375, 20);
+  ellipse(sheepX + 45 * sheepS, sheepY + 180 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 33 * sheepS, sheepY + 185 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 30 * sheepS, sheepY + 200 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 30 * sheepS, sheepY + 215 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 30 * sheepS, sheepY + 225 * sheepS, 10 * sheepS);
+  ellipse(sheepX + 35 * sheepS, sheepY + 235 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 48 * sheepS, sheepY + 238 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 65 * sheepS, sheepY + 238 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 78 * sheepS, sheepY + 235 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 87 * sheepS, sheepY + 225 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 94 * sheepS, sheepY + 215 * sheepS, 10 * sheepS);
+  ellipse(sheepX + 95 * sheepS, sheepY + 200 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 90 * sheepS, sheepY + 185 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 75 * sheepS, sheepY + 175 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 60 * sheepS, sheepY + 175 * sheepS, 20 * sheepS);
   pop();
 
   //the shape
@@ -51,6 +65,14 @@ function sheep() {
   );
   endShape();
   pop();
+
+  //EAR
+  ellipse(
+    sheepX + 93 * sheepS,
+    sheepY + 185 * sheepS,
+    15 * sheepS,
+    30 * sheepS
+  );
 }
 
 sheep();
