@@ -4,8 +4,8 @@ strokeWeight(30);
 line(0, 100, 600, 250);
 pop();
 
-let pigX = 150;
-let pigY = 150;
+let pigX = 200;
+let pigY = 200;
 let pigS = 1;
 
 //---------------------------making the pig
@@ -87,9 +87,25 @@ function pig() {
   //BODY
   strokeWeight(1);
   push();
-  translate(pigX + pigS, pigY + pigS);
-  rotate(0.5);
-  ellipse(pigX + pigS, pigY + pigS, 70 * pigS, 80 * pigS);
+  beginShape();
+  vertex(pigX + 75 * pigS, pigY + 170 * pigS);
+  bezierVertex(
+    pigX + 40 * pigS,
+    pigY + 160 * pigS,
+    pigX + 5 * pigS,
+    pigY + 210 * pigS,
+    pigX + 39 * pigS,
+    pigY + 240 * pigS
+  );
+  bezierVertex(
+    pigX + 90 * pigS,
+    pigY + 260 * pigS,
+    pigX + 118 * pigS,
+    pigY + 190 * pigS,
+    pigX + 75 * pigS,
+    pigY + 170 * pigS
+  );
+  endShape();
   pop();
 
   //FRONT LEGS
