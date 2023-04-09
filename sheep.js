@@ -1,5 +1,9 @@
 background(255, 255, 255);
 stroke(1);
+push();
+strokeWeight(30);
+line(0, 100, 600, 250);
+pop();
 
 let sheepX = 200;
 let sheepY = 200;
