@@ -12,15 +12,24 @@
 }
 
 #startButton {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 40px;
+  background-color: rgb(250, 155, 72);
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
   position: absolute;
-  top: 80%;
+  top: 85%;
   left: 50%;
   transform: translate(-50%, -50%);
+  color: white;
+  cursor: pointer;
 }
 
 #animalsContainer {
   background-color: white;
-  padding: 40px;
+  padding: 50px;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
@@ -28,28 +37,39 @@
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 50%;
+  top: 56%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 #animalsContainer img {
   width: 200px;
-  height: 200px;
+  height: 150px;
 }
 #lamb {
   transform: scale(1.4);
+  margin-right: 35px;
 }
 
 #chicken {
   margin-left: 20px;
-  transform: scale(1.1);
+  transform: scale(1.4);
   margin-top: 30px;
 }
 
-#lamb {
-  margin-right: 40px;
-}
 #pig {
   margin-right: 0px;
+  transform: scale(1.1);
+}
+
+#chooseAnimal {
+  position: absolute;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 40px;
+  color: rgb(255, 255, 255);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
 }
