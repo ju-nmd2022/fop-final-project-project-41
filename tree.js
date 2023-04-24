@@ -10,26 +10,47 @@ function tree() {
   stroke(0, 0, 0);
   strokeWeight(2);
   beginShape();
-  vertex(380, 250);
-  bezierVertex(382, 297, 390, 340, 370, 360);
-  bezierVertex(390, 365, 410, 365, 430, 360);
-  bezierVertex(410, 340, 418, 297, 420, 250);
+  vertex(treeX + 180 * treeS, treeY + 50 * treeS);
+  bezierVertex(
+    treeX + 182 * treeS,
+    treeY + 97 * treeS,
+    treeX + 190 * treeS,
+    treeY + 140 * treeS,
+    treeX + 170 * treeS,
+    treeY + 160 * treeS
+  );
+  bezierVertex(
+    treeX + 190 * treeS,
+    treeY + 165 * treeS,
+    treeX + 210 * treeS,
+    treeY + 165 * treeS,
+    treeX + 230 * treeS,
+    treeY + 160 * treeS
+  );
+  bezierVertex(
+    treeX + 210 * treeS,
+    treeY + 140 * treeS,
+    treeX + 218 * treeS,
+    treeY + 97 * treeS,
+    treeX + 220 * treeS,
+    treeY + 50 * treeS
+  );
   endShape();
   //LEAVES
   fill(107, 142, 35);
-  ellipse(385, 140, 40);
-  ellipse(455, 205, 50);
-  ellipse(365, 230, 50);
-  ellipse(440, 240, 40);
-  ellipse(405, 240, 70);
-  ellipse(350, 195, 50);
-  ellipse(450, 175, 40);
-  ellipse(365, 155, 60);
-  ellipse(430, 140, 55);
+  ellipse(treeX + 185 * treeS, treeY - 60 * treeS, 40 * treeS);
+  ellipse(treeX + 255 * treeS, treeY + 5 * treeS, 50 * treeS);
+  ellipse(treeX + 165 * treeS, treeY + 30 * treeS, 50 * treeS);
+  ellipse(treeX + 240 * treeS, treeY + 40 * treeS, 40 * treeS);
+  ellipse(treeX + 205 * treeS, treeY + 40 * treeS, 70 * treeS);
+  ellipse(treeX + 150 * treeS, treeY - 5 * treeS, 50 * treeS);
+  ellipse(treeX + 250 * treeS, treeY - 25 * treeS, 40 * treeS);
+  ellipse(treeX + 165 * treeS, treeY - 45 * treeS, 60 * treeS);
+  ellipse(treeX + 230 * treeS, treeY - 60 * treeS, 55 * treeS);
   /*ellipse(385, 195, 50);
   ellipse(405, 165, 30);
   ellipse(418, 192, 50); */
   noStroke();
-  ellipse(400, 195, 100);
+  ellipse(treeX + 200 * treeS, treeY - 5 * treeS, 100 * treeS);
 }
 tree();
