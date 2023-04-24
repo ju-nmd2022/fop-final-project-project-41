@@ -47,9 +47,6 @@ function tree() {
   ellipse(treeX + 250 * treeS, treeY - 25 * treeS, 40 * treeS);
   ellipse(treeX + 165 * treeS, treeY - 45 * treeS, 60 * treeS);
   ellipse(treeX + 230 * treeS, treeY - 60 * treeS, 55 * treeS);
-  /*ellipse(385, 195, 50);
-  ellipse(405, 165, 30);
-  ellipse(418, 192, 50); */
   noStroke();
   ellipse(treeX + 200 * treeS, treeY - 5 * treeS, 100 * treeS);
 }
