@@ -5,7 +5,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Country crossroads</title>
-    <a href="startpage.html">Starting page</a>
+    <link rel="stylesheet" href="main.css" />
+    <script src="startpage.js" defer></script>
   </head>
-  <body></body>
+  <body>
+    <div id="container">
+      <canvas id="myCanvas"></canvas>
+      <img src="vectors/Countrylogo.png" id="logo" />
+
+      <p id="chooseAnimal">Choose Animal</p>
+      <button id="startButton">Start Game</button>
+
+      <div id="animalsContainer">
+        <img src="vectors/lamb.svg" id="lamb" />
+        <img src="vectors/pig.svg" id="pig" />
+        <img src="vectors/chicken.svg" id="chicken" />
+      </div>
+    </div>
+  </body>
 </html>
