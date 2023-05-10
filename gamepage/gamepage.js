@@ -1,4 +1,4 @@
-background(107, 142, 35);
+/*background(107, 142, 35);
 
 let roadsX = 200;
 let roadsY = 200;
@@ -302,6 +302,7 @@ function tractor() {
 
 //trying to make chicken work
 
+/*
 let chickenX = 200;
 let chickenY = 200;
 let chickenS = 1;
@@ -500,12 +501,30 @@ function jump() {
 function draw() {
   background(107, 142, 35);
   roads();
-  roadsY += 2;
+  roadsY += 1;
   hay((hayS = 0.5), rotate(0.18));
-  hayY = hayY + 2;
+  hayY = hayY + 1;
   hayX = hayX - 1;
   tractor();
-  tractorY = tractorY + 2;
+  tractorY = tractorY + 1;
   tractorX = tractorX - 3;
   chicken();
+  chickenY = chickenY + 1;
+
+  if ((y = 530)) {
+  }
 }
+
+float x,y;
+float startX,startY, endX,endY;
+float timeSpan;
+
+void setup() {
+  size(800,800);
+  startX = width/2;
+  startY = height/2;
+  endX = 100;
+  endY = 100;
+  timeSpan = 2000.0;
+}
+
