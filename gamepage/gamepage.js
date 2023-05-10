@@ -470,20 +470,21 @@ function chicken() {
   if (keyIsDown(RIGHT_ARROW)) {
     chickenX += 4;
   }
-  if (keyIsDown(UP_ARROW)) {
-    chickenY += -4;
-  }
-  if (keyIsDown(DOWN_ARROW)) {
-    chickenY += 4;
-  }
+  //if (keyIsDown(UP_ARROW)) {
+  // chickenY += -4;
+  //}
+  //if (keyIsDown(DOWN_ARROW)) {
+  //  chickenY += 4;
+  // }
 }
+
 function keyPressed(e) {
   if (e.keyCode === 32) {
     jump();
   }
 }
 let targetChickenY;
-let velocity = 0;
+let velocity = 3;
 
 function jump() {
   chickenY -= 100;
@@ -493,7 +494,7 @@ function jump() {
       velocity += 0.1;
       chickenY += velocity;
     }
-  }, 1000);
+  }, 100);
 }
 
 function draw() {
