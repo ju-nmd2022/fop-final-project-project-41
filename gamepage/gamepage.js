@@ -19,6 +19,12 @@ let barnX = 300;
 let barnY = -1600;
 let barnS = 1;
 
+//losescreen
+function losescreen() {
+  background(255, 255, 255);
+}
+losescreen();
+
 function roads() {
   push();
   stroke(244, 204, 140);
@@ -605,14 +611,19 @@ function draw() {
   hay((hayS = 0.5), rotate(0.18));
   hayY = hayY + 1;
   hayX = hayX - 1;
-  tractor();
+  /*tractor();
   tractorY = tractorY + 1;
-  tractorX = tractorX - 3;
+  tractorX = tractorX - 3;*/
   chicken();
   chickenY = chickenY + 1;
   barn(rotate(-0.1));
   barnY = barnY + 1;
 
-  if ((y = 530)) {
+  for (let i = 0; i < 5; i++) {
+    let tractorX = i * 40 + 50;
+    let tractorY = height / 2;
+    let tractorS = 0.6;
+
+    tractor();
   }
 }
