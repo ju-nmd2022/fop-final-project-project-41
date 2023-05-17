@@ -684,22 +684,28 @@ function loseScreen() {
   fill(255, 255, 255);
 
   image(backgroundImage2, 0, 0, 1024, 768);
-  const losetext = "you were hit by the tractor and turned into ";
+
+  //Making the text for loosing the game --------------------
+  /*const losetext = "you were hit by the tractor and turned into ";
   const pig = "bacon!";
   const chicken = "an egg!";
   const sheep = "a sweater!";
 
   if (keyIsDown(LEFT_ARROW)) {
     console.log(losetext + sheep);
-  }
+  } */
 
-  tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.7));
+  tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
 
   push();
   button = createButton("Try again");
   button.position(450, 570);
   button.size(200, 50);
   button.style("font-size", "24px");
+  button.style("borderRadius", "10px");
+  button.style("color", "white");
+  button.style("border", "3px dark green");
+  button.style("backgroundColor", "green");
   button.mousePressed(buttonPressed);
   pop();
 }
@@ -737,12 +743,16 @@ function startScreen() {
   button.position(450, 570);
   button.size(200, 50);
   button.style("font-size", "24px");
+  button.style("borderRadius", "10px");
+  button.style("color", "white");
+  button.style("border", "3px dark green");
+  button.style("backgroundColor", "green");
 
   button.mousePressed(buttonPressed);
 }
 
 function draw() {
-  loseScreen();
+  startScreen();
 
   /*if (state === "start") {
     startScreen();
