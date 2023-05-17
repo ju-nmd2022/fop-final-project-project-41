@@ -19,12 +19,6 @@ let barnX = 300;
 let barnY = -1600;
 let barnS = 1;
 
-//losescreen
-function losescreen() {
-  background(255, 255, 255);
-  text("Oh no, you lost!", 200, 200);
-}
-
 function roads() {
   push();
   stroke(244, 204, 140);
@@ -316,8 +310,7 @@ function tractor() {
   endShape(CLOSE);
 }
 
-//trying to make chicken work
-
+// chicken drawn and moving
 function chicken() {
   fill(255, 255, 255);
   strokeWeight(1);
@@ -625,6 +618,20 @@ function gamescreen() {
     let tractorS = 0.6; }*/
 }
 
+//losescreen
+function losescreen() {
+  fill(255, 255, 255);
+  background(0, 255, 0);
+  const losetext = "you were hit by the tractor and turned into ";
+  const pig = "bacon";
+
+  if (keyIsDown(LEFT_ARROW)) {
+    console.log(losetext + bacon);
+  }
+
+  tractor();
+}
+
 function draw() {
-  gamescreen();
+  losescreen();
 }
