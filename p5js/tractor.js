@@ -257,4 +257,4 @@ function tractor() {
   endShape(CLOSE);
 }
 
-tractor(translate(0, 0), rotate(0.19));
+tractor(translate(0, 0), rotate(0.19), scale(-1, 1), translate(-width, 0));

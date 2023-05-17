@@ -19,6 +19,10 @@ let barnX = 300;
 let barnY = -1600;
 let barnS = 1;
 
+let treeX = 200;
+let treeY = 200;
+let treeS = 1;
+
 function roads() {
   push();
   stroke(244, 204, 140);
@@ -310,8 +314,7 @@ function tractor() {
   endShape(CLOSE);
 }
 
-//trying to make chicken work
-
+// chicken drawn and moving
 function chicken() {
   fill(255, 255, 255);
   strokeWeight(1);
@@ -576,6 +579,54 @@ function barn() {
   rect(barnX + 57 * barnS, barnY - 30 * barnS, 26 * barnS, 13 * barnS);
   pop();
 }
+function tree() {
+  push();
+  //TRUNK
+  fill(139, 69, 19);
+  stroke(0, 0, 0);
+  strokeWeight(2);
+  beginShape();
+  vertex(treeX + 180 * treeS, treeY + 50 * treeS);
+  bezierVertex(
+    treeX + 182 * treeS,
+    treeY + 97 * treeS,
+    treeX + 190 * treeS,
+    treeY + 140 * treeS,
+    treeX + 170 * treeS,
+    treeY + 160 * treeS
+  );
+  bezierVertex(
+    treeX + 190 * treeS,
+    treeY + 165 * treeS,
+    treeX + 210 * treeS,
+    treeY + 165 * treeS,
+    treeX + 230 * treeS,
+    treeY + 160 * treeS
+  );
+  bezierVertex(
+    treeX + 210 * treeS,
+    treeY + 140 * treeS,
+    treeX + 218 * treeS,
+    treeY + 97 * treeS,
+    treeX + 220 * treeS,
+    treeY + 50 * treeS
+  );
+  endShape();
+  //LEAVES
+  fill(107, 142, 35);
+  ellipse(treeX + 185 * treeS, treeY - 60 * treeS, 40 * treeS);
+  ellipse(treeX + 255 * treeS, treeY + 5 * treeS, 50 * treeS);
+  ellipse(treeX + 165 * treeS, treeY + 30 * treeS, 50 * treeS);
+  ellipse(treeX + 240 * treeS, treeY + 40 * treeS, 40 * treeS);
+  ellipse(treeX + 205 * treeS, treeY + 40 * treeS, 70 * treeS);
+  ellipse(treeX + 150 * treeS, treeY - 5 * treeS, 50 * treeS);
+  ellipse(treeX + 250 * treeS, treeY - 25 * treeS, 40 * treeS);
+  ellipse(treeX + 165 * treeS, treeY - 45 * treeS, 60 * treeS);
+  ellipse(treeX + 230 * treeS, treeY - 60 * treeS, 55 * treeS);
+  noStroke();
+  ellipse(treeX + 200 * treeS, treeY - 5 * treeS, 100 * treeS);
+  pop();
+}
 
 function keyPressed(e) {
   if (e.keyCode === 32) {
@@ -585,6 +636,8 @@ function keyPressed(e) {
 let targetChickenY;
 let velocity = 1;
 let acceleration = 0.1;
+let state = "start";
+let isGameActive = false;
 
 function jump() {
   chickenY -= 100;
@@ -598,21 +651,54 @@ function jump() {
   targetChickenY -= 51;
 }
 
-function draw() {
+function gamescreen() {
   background(107, 142, 35);
   roads();
   roadsY += 1;
   hay((hayS = 0.5), rotate(0.18));
   hayY = hayY + 1;
   hayX = hayX - 1;
-  tractor();
+  /*tractor();
   tractorY = tractorY + 1;
-  tractorX = tractorX - 3;
+  tractorX = tractorX - 3;*/
   chicken();
   chickenY = chickenY + 1;
   barn(rotate(-0.1));
   barnY = barnY + 1;
+  tree();
 
-  if ((y = 530)) {
+  /*for (let i = 0; i < 5; i++) {
+    let tractorX = i * 40 + 50;
+    let tractorY = height / 2;
+    let tractorS = 0.6; }*/
+}
+
+//losescreen
+function losescreen() {
+  fill(255, 255, 255);
+  background(0, 255, 0);
+  const losetext = "you were hit by the tractor and turned into ";
+  const pig = "bacon!";
+  const chicken = "an egg!";
+  const sheep = "a sweater!";
+
+  if (keyIsDown(LEFT_ARROW)) {
+    console.log(losetext + sheep);
   }
+
+  tractor();
+}
+
+function draw() {
+  gamescreen();
+
+  /*if (state === "start") {
+    startScreen();
+  } else if (state === "game") {
+    gameScreen();
+  } else if (state === "win") {
+    winScreen();
+  } else if (state === "lose") {
+    loseScreen();
+  } */
 }
