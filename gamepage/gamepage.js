@@ -673,8 +673,6 @@ function gamescreen() {
     let tractorS = 0.6; }*/
 }
 
-let backgroundImage;
-
 function preload() {
   backgroundImage = loadImage("farmBackground5.jpeg");
 }
