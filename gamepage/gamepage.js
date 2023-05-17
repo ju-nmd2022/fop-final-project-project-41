@@ -22,8 +22,8 @@ let barnS = 1;
 //losescreen
 function losescreen() {
   background(255, 255, 255);
+  text("Oh no, you lost!", 200, 200);
 }
-losescreen();
 
 function roads() {
   push();
@@ -604,7 +604,7 @@ function jump() {
   targetChickenY -= 51;
 }
 
-function draw() {
+function gamescreen() {
   background(107, 142, 35);
   roads();
   roadsY += 1;
@@ -619,11 +619,12 @@ function draw() {
   barn(rotate(-0.1));
   barnY = barnY + 1;
 
-  for (let i = 0; i < 5; i++) {
+  /*for (let i = 0; i < 5; i++) {
     let tractorX = i * 40 + 50;
     let tractorY = height / 2;
-    let tractorS = 0.6;
+    let tractorS = 0.6; }*/
+}
 
-    tractor();
-  }
+function draw() {
+  gamescreen();
 }
