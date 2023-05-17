@@ -1,3 +1,7 @@
+function setup() {
+  createCanvas(1024, 768);
+}
+
 background(107, 142, 35);
 
 let roadsX = 200;
@@ -707,10 +711,6 @@ function preload() {
   image2 = loadImage("lamb.png");
   image3 = loadImage("chicken.png");
   logo = loadImage("Countrylogo.png");
-}
-
-function setup() {
-  createCanvas(1024, 768);
 }
 
 function buttonPressed() {
