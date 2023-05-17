@@ -655,7 +655,7 @@ function jump() {
   targetChickenY -= 51;
 }
 
-function gamescreen() {
+function gameScreen() {
   background(107, 142, 35);
   roads();
   roadsY += 1;
@@ -679,12 +679,8 @@ function gamescreen() {
 
 let backgroundImage2;
 
-function preload() {
-  backgroundImage2 = loadImage("farmBackground5.jpeg");
-}
-
 //losescreen
-function losescreen() {
+function loseScreen() {
   fill(255, 255, 255);
 
   image(backgroundImage2, 0, 0, 1024, 768);
@@ -697,7 +693,15 @@ function losescreen() {
     console.log(losetext + sheep);
   }
 
-  tractor();
+  tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.7));
+
+  push();
+  button = createButton("Try again");
+  button.position(450, 570);
+  button.size(200, 50);
+  button.style("font-size", "24px");
+  button.mousePressed(buttonPressed);
+  pop();
 }
 
 let backgroundImage;
@@ -706,6 +710,7 @@ let image1, image2, image3;
 let logo;
 
 function preload() {
+  backgroundImage2 = loadImage("farmBackground2.jpg");
   backgroundImage = loadImage("farmBackground.jpg");
   image1 = loadImage("pig.png");
   image2 = loadImage("lamb.png");
@@ -718,7 +723,7 @@ function buttonPressed() {
 }
 
 //startscreen
-function startscreen() {
+function startScreen() {
   fill(255, 255, 255);
   image(backgroundImage, 0, 0, 1024, 768);
   noStroke();
@@ -737,7 +742,7 @@ function startscreen() {
 }
 
 function draw() {
-  losescreen();
+  loseScreen();
 
   /*if (state === "start") {
     startScreen();
@@ -746,6 +751,6 @@ function draw() {
   } else if (state === "win") {
     winScreen();
   } else if (state === "lose") {
-    loseScreen();
+    loseScreen(); 
   } */
 }
