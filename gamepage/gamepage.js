@@ -681,7 +681,7 @@ function preload() {
 function losescreen() {
   fill(255, 255, 255);
 
-  image(backgroundImage, 300, 300);
+  image(backgroundImage, 0, 0);
   const losetext = "you were hit by the tractor and turned into ";
   const pig = "bacon!";
   const chicken = "an egg!";
