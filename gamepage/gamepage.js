@@ -584,6 +584,8 @@ function keyPressed(e) {
 let targetChickenY;
 let velocity = 1;
 let acceleration = 0.1;
+let state = "start";
+let isGameActive = false;
 
 function jump() {
   chickenY -= 100;
@@ -623,10 +625,12 @@ function losescreen() {
   fill(255, 255, 255);
   background(0, 255, 0);
   const losetext = "you were hit by the tractor and turned into ";
-  const pig = "bacon";
+  const pig = "bacon!";
+  const chicken = "an egg!";
+  const sheep = "a sweater!";
 
   if (keyIsDown(LEFT_ARROW)) {
-    console.log(losetext + bacon);
+    console.log(losetext + sheep);
   }
 
   tractor();
@@ -634,4 +638,14 @@ function losescreen() {
 
 function draw() {
   losescreen();
+
+  if (state === "start") {
+    startScreen();
+  } else if (state === "game") {
+    gameScreen();
+  } else if (state === "win") {
+    winScreen();
+  } else if (state === "lose") {
+    loseScreen();
+  }
 }
