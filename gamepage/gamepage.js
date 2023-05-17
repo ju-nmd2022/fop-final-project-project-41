@@ -726,7 +726,7 @@ function buttonPressed() {
 //startscreen
 function startscreen() {
   fill(255, 255, 255);
-  image(backgroundImage, 300, 300);
+  image(backgroundImage, 0, 0, 1024, 768);
   noStroke();
   rect(90, 230, 860, 260);
 
