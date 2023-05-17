@@ -673,15 +673,17 @@ function gamescreen() {
     let tractorS = 0.6; }*/
 }
 
+let backgroundImage2;
+
 function preload() {
-  backgroundImage = loadImage("farmBackground5.jpeg");
+  backgroundImage2 = loadImage("farmBackground5.jpeg");
 }
 
 //losescreen
 function losescreen() {
   fill(255, 255, 255);
 
-  image(backgroundImage, 0, 0);
+  image(backgroundImage2, 0, 0, 1024, 768);
   const losetext = "you were hit by the tractor and turned into ";
   const pig = "bacon!";
   const chicken = "an egg!";
@@ -737,7 +739,7 @@ function startscreen() {
 }
 
 function draw() {
-  startscreen();
+  losescreen();
 
   /*if (state === "start") {
     startScreen();
