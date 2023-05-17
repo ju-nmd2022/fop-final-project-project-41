@@ -711,14 +711,6 @@ function preload() {
 
 function setup() {
   createCanvas(1024, 768);
-
-  // Create the button
-  button = createButton("Start Game");
-  button.position(450, 570);
-  button.size(200, 50);
-  button.style("font-size", "24px");
-
-  button.mousePressed(buttonPressed);
 }
 
 function buttonPressed() {
@@ -728,7 +720,7 @@ function buttonPressed() {
 //startscreen
 function startscreen() {
   fill(255, 255, 255);
-  image(backgroundImage, 300, 300);
+  image(backgroundImage, 0, 0, 1024, 768);
   noStroke();
   rect(90, 230, 860, 260);
 
@@ -736,6 +728,12 @@ function startscreen() {
   image(image2, 650, 250, image1.width * 0.37, image1.height * 0.27);
   image(image3, 170, 250, image1.width * 0.24, image1.height * 0.34);
   image(logo, 360, 40);
+  button = createButton("Start Game");
+  button.position(450, 570);
+  button.size(200, 50);
+  button.style("font-size", "24px");
+
+  button.mousePressed(buttonPressed);
 }
 
 function draw() {
