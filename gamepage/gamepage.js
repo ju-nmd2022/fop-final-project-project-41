@@ -632,16 +632,23 @@ function tree() {
   pop();
 }
 
-function keyPressed(e) {
-  if (e.keyCode === 32) {
-    jump();
-  }
-}
+//some variables
 let targetChickenY;
 let velocity = 1;
 let acceleration = 0.1;
 let state = "start";
 let isGameActive = false;
+let backgroundImage;
+let button;
+let image1, image2, image3;
+let logo;
+let backgroundImage2;
+
+function keyPressed(e) {
+  if (e.keyCode === 32) {
+    jump();
+  }
+}
 
 function jump() {
   chickenY -= 100;
@@ -654,66 +661,6 @@ function jump() {
   }, 100);
   targetChickenY -= 51;
 }
-
-function gameScreen() {
-  background(107, 142, 35);
-  roads();
-  roadsY += 1;
-  hay((hayS = 0.5), rotate(0.18));
-  hayY = hayY + 1;
-  hayX = hayX - 1;
-  /*tractor();
-  tractorY = tractorY + 1;
-  tractorX = tractorX - 3;*/
-  chicken();
-  chickenY = chickenY + 1;
-  barn(rotate(-0.1));
-  barnY = barnY + 1;
-  tree();
-
-  /*for (let i = 0; i < 5; i++) {
-    let tractorX = i * 40 + 50;
-    let tractorY = height / 2;
-    let tractorS = 0.6; }*/
-}
-
-let backgroundImage2;
-
-//losescreen
-function loseScreen() {
-  fill(255, 255, 255);
-
-  image(backgroundImage2, 0, 0, 1024, 768);
-
-  //Making the text for loosing the game --------------------
-  /*const losetext = "you were hit by the tractor and turned into ";
-  const pig = "bacon!";
-  const chicken = "an egg!";
-  const sheep = "a sweater!";
-
-  if (keyIsDown(LEFT_ARROW)) {
-    console.log(losetext + sheep);
-  } */
-
-  tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
-
-  push();
-  button = createButton("Try again");
-  button.position(450, 570);
-  button.size(200, 50);
-  button.style("font-size", "24px");
-  button.style("borderRadius", "10px");
-  button.style("color", "white");
-  button.style("border", "3px dark green");
-  button.style("backgroundColor", "green");
-  button.mousePressed(buttonPressed);
-  pop();
-}
-
-let backgroundImage;
-let button;
-let image1, image2, image3;
-let logo;
 
 function preload() {
   backgroundImage2 = loadImage("farmBackground2.jpg");
@@ -749,6 +696,63 @@ function startScreen() {
   button.style("backgroundColor", "green");
 
   button.mousePressed(buttonPressed);
+}
+
+//gamescreen
+function gameScreen() {
+  push();
+  createCanvas(600, 560);
+  background(107, 142, 35);
+  roads();
+  roadsY += 1;
+  hay((hayS = 0.5), rotate(0.18));
+  hayY = hayY + 1;
+  hayX = hayX - 1;
+  /*tractor();
+  tractorY = tractorY + 1;
+  tractorX = tractorX - 3;*/
+  chicken();
+  chickenY = chickenY + 1;
+  barn(rotate(-0.1));
+  barnY = barnY + 1;
+  tree();
+
+  /*for (let i = 0; i < 5; i++) {
+    let tractorX = i * 40 + 50;
+    let tractorY = height / 2;
+    let tractorS = 0.6; }*/
+  pop();
+}
+
+//losescreen
+function loseScreen() {
+  fill(255, 255, 255);
+
+  image(backgroundImage2, 0, 0, 1024, 768);
+
+  //Making the text for loosing the game --------------------
+  /*const losetext = "you were hit by the tractor and turned into ";
+  const pig = "bacon!";
+  const chicken = "an egg!";
+  const sheep = "a sweater!";
+
+  if (keyIsDown(LEFT_ARROW)) {
+    console.log(losetext + sheep);
+  } */
+
+  tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
+
+  push();
+  button = createButton("Try again");
+  button.position(450, 570);
+  button.size(200, 50);
+  button.style("font-size", "24px");
+  button.style("borderRadius", "10px");
+  button.style("color", "white");
+  button.style("border", "3px dark green");
+  button.style("backgroundColor", "green");
+  button.mousePressed(buttonPressed);
+  pop();
 }
 
 function draw() {
