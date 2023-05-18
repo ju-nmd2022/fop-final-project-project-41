@@ -665,6 +665,7 @@ function keyPressed(e) {
   }
 }
 
+//making the chicken jump and counting how many times it jumped
 function jump() {
   chickenY -= 100;
   targetChickenY = chickenY + 100;
@@ -675,9 +676,11 @@ function jump() {
     }
   }, 100);
   targetChickenY -= 51;
+
+  //counting jumps
   executionCount++;
 
-  const desiredExecutionCount = 42;
+  const desiredExecutionCount = 5;
   if (executionCount === desiredExecutionCount) {
     console.log("The function has been executed 5 times.");
   }
@@ -721,7 +724,6 @@ function startScreen() {
 
 //gamescreen
 function gameScreen() {
-  push();
   createCanvas(600, 560);
   background(107, 142, 35);
   roads();
@@ -743,7 +745,6 @@ function gameScreen() {
     let tractorX = i * 40 + 50;
     let tractorY = height / 2;
     let tractorS = 0.6; }*/
-  pop();
 }
 
 //losescreen
@@ -753,7 +754,7 @@ function loseScreen() {
   image(backgroundImage2, 0, 0, 1024, 768);
 
   //Making the text for loosing the game --------------------
-  text("You were hit by the tractor and turned into " + something, 130, 120);
+  text("You were hit by the tractor and turned into ", 130, 120);
 
   tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
 
@@ -775,6 +776,7 @@ function winScreen() {
 }
 
 function draw() {
+  //different states of the game
   if (state === "start") {
     startScreen();
   } else if (state === "game") {
@@ -807,7 +809,7 @@ function draw() {
     }
   } else if (state === "game" && targetChickenY < -250) {
     console.log("state");
-    state = "win";
+    state = "lose";
 
     /*else if (keyIsDown(32) && state === "game") {
     isGameActive = true;
