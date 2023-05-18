@@ -24,9 +24,9 @@ let barnX = 300;
 let barnY = -1600;
 let barnS = 1;
 
-let treeX = 200;
-let treeY = 200;
-let treeS = 1;
+let treeX = 400;
+let treeY = 70;
+let treeS = 0.7;
 
 function roads() {
   push();
@@ -698,16 +698,16 @@ function startScreen() {
   image(image2, 650, 250, image1.width * 0.37, image1.height * 0.27);
   image(image3, 170, 250, image1.width * 0.24, image1.height * 0.34);
   image(logo, 360, 40);
-  button = createButton("Start Game");
-  button.position(450, 570);
-  button.size(200, 50);
-  button.style("font-size", "24px");
-  button.style("borderRadius", "10px");
-  button.style("color", "white");
-  button.style("border", "3px dark green");
-  button.style("backgroundColor", "green");
 
-  button.mousePressed(buttonPressed);
+  push();
+  fill("green");
+  strokeWeight(3);
+  rect(430, 550, 200, 50, 10);
+  fill(255, 255, 255);
+  noStroke();
+  textSize(30);
+  text("Start Game", 453, 585);
+  pop();
 }
 
 //gamescreen
@@ -728,6 +728,7 @@ function gameScreen() {
   barn(rotate(-0.1));
   barnY = barnY + 1;
   tree();
+  treeY = treeY + 1;
 
   /*for (let i = 0; i < 5; i++) {
     let tractorX = i * 40 + 50;
@@ -776,34 +777,36 @@ function draw() {
   }
 
   //got help from checking if the button was clicked from chatGPT------
-  if (state === "start") {
-    // Define the coordinates and dimensions of the area
-    const areaX = 432; // x-coordinate of the top-left corner of the area
-    const areaY = 550; // y-coordinate of the top-left corner of the area
-    const areaWidth = 200; // width of the area
-    const areaHeight = 50; // height of the area
 
-    // Check if the mouse click is within the area
-    if (mouseisPressed) {
+  if (state === "start") {
+    // Defining the coordinates and size of the area
+    const areaX = 432;
+    const areaY = 550;
+    const areaWidth = 200;
+    const areaHeight = 50;
+
+    // Check if the mouseclick is within the area
     if (
       mouseX >= areaX &&
       mouseX <= areaX + areaWidth &&
       mouseY >= areaY &&
       mouseY <= areaY + areaHeight
     ) {
-      // Area was clicked, perform desired actions
+      // Area was clicked
       console.log("Area clicked!");
       state = "game";
+    } else if (state === "game" && chickenY === barnY) {
+      state = "win";
+      console.log("the objects are the same");
     }
-  }
-  
 
-  /*else if (keyIsDown(32) && state === "game") {
+    /*else if (keyIsDown(32) && state === "game") {
     isGameActive = true;
   } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
     state = "game";
   } */
-  /*if (buttonPressed && state === "start") {
+    /*if (buttonPressed && state === "start") {
     state === "game";
   } */
   }
+}
