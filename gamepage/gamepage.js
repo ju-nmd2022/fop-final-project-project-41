@@ -1,5 +1,6 @@
 function setup() {
   createCanvas(1024, 768);
+  frameRate(30);
 }
 
 background(107, 142, 35);
@@ -134,6 +135,7 @@ function tractor() {
 
   //BACK TIRE
   //dark grey
+  push();
   fill(50, 50, 50);
   strokeWeight(2);
   ellipse(
@@ -159,6 +161,7 @@ function tractor() {
     9 * tractorS,
     13 * tractorS
   );
+  pop();
 
   //FRONT PART
   push();
@@ -194,6 +197,7 @@ function tractor() {
 
   //TIRES
   //dark grey
+  push();
   fill(50, 50, 50);
   strokeWeight(3);
   ellipse(
@@ -250,8 +254,11 @@ function tractor() {
     tractorY + 95 * tractorS
   );
   endShape(CLOSE);
+  pop();
+
   //second front tire
   //dark grey
+  push();
   fill(50, 50, 50);
   ellipse(tractorX + 93 * tractorS, tractorY + 117 * tractorS, 50 * tractorS);
   //medium grey
@@ -271,6 +278,7 @@ function tractor() {
     10 * tractorS,
     15 * tractorS
   );
+  pop();
 
   //PLATE IN FRONT
   fill(170, 170, 170);
@@ -284,6 +292,7 @@ function tractor() {
   );
 
   //HEADLIGHTS
+  push();
   fill(50, 50, 50);
   strokeWeight(1);
   ellipse(tractorX + 65 * tractorS, tractorY + 80 * tractorS, 10 * tractorS);
@@ -301,8 +310,10 @@ function tractor() {
     7 * tractorS,
     10 * tractorS
   );
+  pop();
 
   //WINDOWS
+  push();
   fill(255, 255, 255);
   beginShape();
   vertex(tractorX + 120 * tractorS, tractorY + 5 * tractorS);
@@ -317,6 +328,7 @@ function tractor() {
   vertex(tractorX + 155 * tractorS, tractorY + 7 * tractorS);
   endShape(CLOSE);
 }
+pop();
 
 // chicken drawn and moving
 function chicken() {
@@ -617,7 +629,7 @@ function tree() {
   );
   endShape();
   //LEAVES
-  fill(107, 142, 35);
+  fill(40, 200, 50);
   ellipse(treeX + 185 * treeS, treeY - 60 * treeS, 40 * treeS);
   ellipse(treeX + 255 * treeS, treeY + 5 * treeS, 50 * treeS);
   ellipse(treeX + 165 * treeS, treeY + 30 * treeS, 50 * treeS);
@@ -731,14 +743,7 @@ function loseScreen() {
   image(backgroundImage2, 0, 0, 1024, 768);
 
   //Making the text for loosing the game --------------------
-  /*const losetext = "you were hit by the tractor and turned into ";
-  const pig = "bacon!";
-  const chicken = "an egg!";
-  const sheep = "a sweater!";
-
-  if (keyIsDown(LEFT_ARROW)) {
-    console.log(losetext + sheep);
-  } */
+  text("You were hit by the tractor and turned into " + level, 130, 120);
 
   tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
 
@@ -755,16 +760,29 @@ function loseScreen() {
   pop();
 }
 
-function draw() {
-  gameScreen();
+function winScreen() {
+  background(255, 255, 255);
+}
 
-  /*if (state === "start") {
+function draw() {
+  if (state === "start") {
     startScreen();
   } else if (state === "game") {
     gameScreen();
   } else if (state === "win") {
     winScreen();
   } else if (state === "lose") {
-    loseScreen(); 
+    loseScreen();
+  }
+
+  if (keyIsDown(32) && state === "start") {
+    state = "game";
+  } else if (keyIsDown(32) && state === "game") {
+    isGameActive = true;
+  } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
+    state = "game";
+  }
+  /*if (buttonPressed && state === "start") {
+    state === "game";
   } */
 }
