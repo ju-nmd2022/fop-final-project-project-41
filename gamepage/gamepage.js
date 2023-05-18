@@ -752,7 +752,7 @@ function startScreen() {
 }
 
 function draw() {
-  startScreen();
+  gameScreen();
 
   /*if (state === "start") {
     startScreen();
