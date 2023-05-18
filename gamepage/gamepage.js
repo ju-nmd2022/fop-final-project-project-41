@@ -328,7 +328,6 @@ function tractor() {
   vertex(tractorX + 155 * tractorS, tractorY + 7 * tractorS);
   endShape(CLOSE);
 }
-pop();
 
 // chicken drawn and moving
 function chicken() {
@@ -595,6 +594,7 @@ function barn() {
   rect(barnX + 57 * barnS, barnY - 30 * barnS, 26 * barnS, 13 * barnS);
   pop();
 }
+
 function tree() {
   push();
   //TRUNK
@@ -775,13 +775,33 @@ function draw() {
     loseScreen();
   }
 
-  if (keyIsDown(32) && state === "start") {
-    state = "game";
-  } else if (keyIsDown(32) && state === "game") {
+  //got help from checking if the button was clicked from chatGPT------
+
+  if (state === "start") {
+    // Define the coordinates and dimensions of the area
+    const areaX = 432; // x-coordinate of the top-left corner of the area
+    const areaY = 550; // y-coordinate of the top-left corner of the area
+    const areaWidth = 200; // width of the area
+    const areaHeight = 50; // height of the area
+
+    // Check if the mouse click is within the area
+    if (
+      mouseX >= areaX &&
+      mouseX <= areaX + areaWidth &&
+      mouseY >= areaY &&
+      mouseY <= areaY + areaHeight
+    ) {
+      // Area was clicked, perform desired actions
+      console.log("Area clicked!");
+      state = "game";
+    }
+  }
+
+  /*else if (keyIsDown(32) && state === "game") {
     isGameActive = true;
   } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
     state = "game";
-  }
+  } */
   /*if (buttonPressed && state === "start") {
     state === "game";
   } */
