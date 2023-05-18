@@ -695,10 +695,6 @@ function preload() {
   logo = loadImage("Countrylogo.png");
 }
 
-function buttonPressed() {
-  console.log("Button pressed!");
-}
-
 //startscreen
 function startScreen() {
   fill(255, 255, 255);
@@ -759,15 +755,13 @@ function loseScreen() {
   tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
 
   push();
-  button = createButton("Try again");
-  button.position(450, 570);
-  button.size(200, 50);
-  button.style("font-size", "24px");
-  button.style("borderRadius", "10px");
-  button.style("color", "white");
-  button.style("border", "3px dark green");
-  button.style("backgroundColor", "green");
-  button.mousePressed(buttonPressed);
+  fill("green");
+  strokeWeight(3);
+  rect(430, 550, 200, 50, 10);
+  fill(255, 255, 255);
+  noStroke();
+  textSize(30);
+  text("Start Game", 453, 585);
   pop();
 }
 
@@ -813,6 +807,8 @@ function draw() {
   } else if (state === "game" && targetChickenY > 280) {
     console.log("other state");
     state = "lose";
+  } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
+    state = "game";
   }
 
   /*else if (keyIsDown(32) && state === "game") {
