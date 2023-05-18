@@ -656,6 +656,9 @@ let image1, image2, image3;
 let logo;
 let backgroundImage2;
 
+//executionCount variable and functionality also obtained from chatGPT-----
+let executionCount = 0;
+
 function keyPressed(e) {
   if (e.keyCode === 32) {
     jump();
@@ -672,6 +675,12 @@ function jump() {
     }
   }, 100);
   targetChickenY -= 51;
+  executionCount++;
+
+  const desiredExecutionCount = 42;
+  if (executionCount === desiredExecutionCount) {
+    console.log("The function has been executed 5 times.");
+  }
 }
 
 function preload() {
@@ -795,10 +804,10 @@ function draw() {
       // Area was clicked
       console.log("Area clicked!");
       state = "game";
-    } else if (state === "game" && chickenY === barnY) {
-      state = "win";
-      console.log("the objects are the same");
     }
+  } else if (state === "game" && targetChickenY < -250) {
+    console.log("state");
+    state = "win";
 
     /*else if (keyIsDown(32) && state === "game") {
     isGameActive = true;
