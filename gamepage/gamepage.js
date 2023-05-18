@@ -810,14 +810,17 @@ function draw() {
   } else if (state === "game" && targetChickenY < -250) {
     console.log("state");
     state = "lose";
+  } else if (state === "game" && targetChickenY > 280) {
+    console.log("other state");
+    state = "lose";
+  }
 
-    /*else if (keyIsDown(32) && state === "game") {
+  /*else if (keyIsDown(32) && state === "game") {
     isGameActive = true;
   } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
     state = "game";
   } */
-    /*if (buttonPressed && state === "start") {
+  /*if (buttonPressed && state === "start") {
     state === "game";
   } */
-  }
 }
