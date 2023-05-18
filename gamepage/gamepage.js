@@ -743,7 +743,7 @@ function loseScreen() {
   image(backgroundImage2, 0, 0, 1024, 768);
 
   //Making the text for loosing the game --------------------
-  text("You were hit by the tractor and turned into " + level, 130, 120);
+  text("You were hit by the tractor and turned into " + something, 130, 120);
 
   tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
 
@@ -776,7 +776,6 @@ function draw() {
   }
 
   //got help from checking if the button was clicked from chatGPT------
-
   if (state === "start") {
     // Define the coordinates and dimensions of the area
     const areaX = 432; // x-coordinate of the top-left corner of the area
@@ -785,6 +784,7 @@ function draw() {
     const areaHeight = 50; // height of the area
 
     // Check if the mouse click is within the area
+    if (mouseisPressed) {
     if (
       mouseX >= areaX &&
       mouseX <= areaX + areaWidth &&
@@ -796,6 +796,7 @@ function draw() {
       state = "game";
     }
   }
+  
 
   /*else if (keyIsDown(32) && state === "game") {
     isGameActive = true;
@@ -805,4 +806,4 @@ function draw() {
   /*if (buttonPressed && state === "start") {
     state === "game";
   } */
-}
+  }
