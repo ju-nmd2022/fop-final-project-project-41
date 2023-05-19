@@ -15,6 +15,7 @@ let hayS = 1;
 let tractorX = 500;
 let tractorY = 110;
 let tractorS = 0.6;
+let tractorSpeed = 2;
 
 let chickenX = 200;
 let chickenY = 200;
@@ -745,9 +746,10 @@ function gameScreen() {
   tree();
   treeY = treeY + 1;
 
+  //for loop to draw multiple tractors
   for (let i = 0; i < 5; i++) {
-    let tractorX = i * 100; // x-position of each instance
-    let tractorY = 200; // y-position of each instance
+    let tractorX = i * 100;
+    let tractorY = i * 100;
 
     // Call the tractor function to draw an instance
     tractor(tractorX, tractorY);
