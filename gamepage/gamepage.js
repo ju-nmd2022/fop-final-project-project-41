@@ -1119,7 +1119,7 @@ function winScreen() {
   image(backgroundImage2, 0, 0, 1024, 768);
 
   //Making the text for loosing the game --------------------
-  textSize(30);
+  textSize(24);
   text("You won the game, congrats!", 130, 120);
 
   tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
@@ -1172,8 +1172,26 @@ function draw() {
     gameScreen();
   } else if (state === "win") {
     winScreen();
+  }
+  if (
+    mouseIsPressed &&
+    mouseX > 400 &&
+    mouseX < 600 &&
+    mouseY > 550 &&
+    mouseY < 650
+  ) {
+    state = "start";
   } else if (state === "lose") {
     loseScreen();
+  }
+  if (
+    mouseIsPressed &&
+    mouseX > 400 &&
+    mouseX < 600 &&
+    mouseY > 550 &&
+    mouseY < 650
+  ) {
+    state = "start";
     {
       if (animal === "pig") {
         image(baconImage, 200, 200, width, height);
