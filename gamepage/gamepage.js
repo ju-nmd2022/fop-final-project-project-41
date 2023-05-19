@@ -21,7 +21,7 @@ let chickenY = 200;
 let chickenS = 1;
 
 let barnX = 300;
-let barnY = -1600;
+let barnY = -3100;
 let barnS = 1;
 
 let treeX = 400;
@@ -37,10 +37,18 @@ function roads() {
   line(roadsX - 200, roadsY - 400, roadsX + 400, roadsY - 300);
   line(roadsX - 200, roadsY - 800, roadsX + 400, roadsY - 700);
   line(roadsX - 200, roadsY - 1400, roadsX + 400, roadsY - 1300);
+  line(roadsX - 200, roadsY - 1600, roadsX + 400, roadsY - 1500);
+  line(roadsX - 200, roadsY - 2000, roadsX + 400, roadsY - 1900);
+  line(roadsX - 200, roadsY - 2200, roadsX + 400, roadsY - 2100);
+  line(roadsX - 200, roadsY - 2600, roadsX + 400, roadsY - 2500);
   stroke(135, 206, 250);
   line(roadsX - 200, roadsY - 600, roadsX + 400, roadsY - 500);
   line(roadsX - 200, roadsY - 1000, roadsX + 400, roadsY - 900);
   line(roadsX - 200, roadsY - 1200, roadsX + 400, roadsY - 1100);
+  line(roadsX - 200, roadsY - 1800, roadsX + 400, roadsY - 1700);
+  line(roadsX - 200, roadsY - 2400, roadsX + 400, roadsY - 2300);
+  line(roadsX - 200, roadsY - 2800, roadsX + 400, roadsY - 2700);
+  line(roadsX - 200, roadsY - 3000, roadsX + 400, roadsY - 2900);
   pop();
 }
 
@@ -68,7 +76,7 @@ function hay() {
   pop();
 }
 
-function tractor() {
+function tractor(tractorX, tractorY) {
   //PART WHERE YOU SIT
   push();
   fill(255, 0, 0);
@@ -727,15 +735,23 @@ function gameScreen() {
   hay((hayS = 0.5), rotate(0.18));
   hayY = hayY + 1;
   hayX = hayX - 1;
-  tractor();
+  /*tractor();
   tractorY = tractorY + 1;
-  tractorX = tractorX - 3;
+  tractorX = tractorX - 3; */
   chicken();
   chickenY = chickenY + 1;
   barn(rotate(-0.1));
   barnY = barnY + 1;
   tree();
   treeY = treeY + 1;
+
+  for (let i = 0; i < 5; i++) {
+    let tractorX = i * 100; // x-position of each instance
+    let tractorY = 200; // y-position of each instance
+
+    // Call the tractor function to draw an instance
+    tractor(tractorX, tractorY);
+  }
 }
 
 //losescreen
@@ -765,7 +781,8 @@ function winScreen() {
 }
 
 function draw() {
-  gamescreen(); /*if (state === "start") {
+  startScreen();
+  if (state === "start") {
     startScreen();
   } else if (state === "game") {
     gameScreen();
@@ -809,7 +826,7 @@ function draw() {
     isGameActive = true;
   } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
     state = "game";
-  } */
+  } 
   /*if (buttonPressed && state === "start") {
     state === "game";
   } */
