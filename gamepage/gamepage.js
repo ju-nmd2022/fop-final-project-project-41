@@ -1028,7 +1028,7 @@ function startScreen() {
   fill(255, 255, 255);
   image(backgroundImage, 0, 0, 1024, 768);
   noStroke();
-  rect(90, 230, 860, 260);
+  rect(90, 230, 860, 260, 10);
 
   image(image1, 400, 250, image1.width * 0.27, image1.height * 0.27); // Scale down the image by half
   image(image2, 650, 250, image1.width * 0.37, image1.height * 0.27);
@@ -1038,11 +1038,11 @@ function startScreen() {
   push();
   fill("green");
   strokeWeight(3);
-  rect(430, 550, 200, 50, 10);
+  rect(350, 550, 390, 50, 10);
   fill(255, 255, 255);
   noStroke();
   textSize(30);
-  text("Start Game", 453, 585);
+  text("Click on an animal to start", 373, 585);
   pop();
 }
 
@@ -1106,7 +1106,24 @@ function loseScreen() {
 }
 
 function winScreen() {
-  background(255, 255, 255);
+  fill(255, 255, 255);
+
+  image(backgroundImage2, 0, 0, 1024, 768);
+
+  //Making the text for loosing the game --------------------
+  text("You were hit by the tractor and turned into ", 130, 120);
+
+  tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
+
+  push();
+  fill("green");
+  strokeWeight(3);
+  rect(430, 550, 200, 50, 10);
+  fill(255, 255, 255);
+  noStroke();
+  textSize(30);
+  text("Start Game", 453, 585);
+  pop();
 }
 
 function draw() {
@@ -1154,23 +1171,6 @@ function draw() {
 //got help from checking if the button was clicked from chatGPT------
 
 if (state === "start") {
-  // Defining the coordinates and size of the area
-  const areaX = 432;
-  const areaY = 550;
-  const areaWidth = 200;
-  const areaHeight = 50;
-
-  // Check if the mouseclick is within the area
-  if (
-    mouseX >= areaX &&
-    mouseX <= areaX + areaWidth &&
-    mouseY >= areaY &&
-    mouseY <= areaY + areaHeight
-  ) {
-    // Area was clicked
-    console.log("Area clicked!");
-    state = "game";
-  }
 } else if (state === "game" && targetChickenY < -250) {
   console.log("state");
   state = "lose";
