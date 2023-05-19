@@ -1,3 +1,8 @@
+function setup() {
+  createCanvas(1024, 768);
+  frameRate(30);
+}
+
 background(107, 142, 35);
 
 let roadsX = 200;
@@ -19,9 +24,9 @@ let barnX = 300;
 let barnY = -1600;
 let barnS = 1;
 
-let treeX = 200;
-let treeY = 200;
-let treeS = 1;
+let treeX = 400;
+let treeY = 70;
+let treeS = 0.7;
 
 function roads() {
   push();
@@ -130,6 +135,7 @@ function tractor() {
 
   //BACK TIRE
   //dark grey
+  push();
   fill(50, 50, 50);
   strokeWeight(2);
   ellipse(
@@ -155,6 +161,7 @@ function tractor() {
     9 * tractorS,
     13 * tractorS
   );
+  pop();
 
   //FRONT PART
   push();
@@ -190,6 +197,7 @@ function tractor() {
 
   //TIRES
   //dark grey
+  push();
   fill(50, 50, 50);
   strokeWeight(3);
   ellipse(
@@ -246,8 +254,11 @@ function tractor() {
     tractorY + 95 * tractorS
   );
   endShape(CLOSE);
+  pop();
+
   //second front tire
   //dark grey
+  push();
   fill(50, 50, 50);
   ellipse(tractorX + 93 * tractorS, tractorY + 117 * tractorS, 50 * tractorS);
   //medium grey
@@ -267,6 +278,7 @@ function tractor() {
     10 * tractorS,
     15 * tractorS
   );
+  pop();
 
   //PLATE IN FRONT
   fill(170, 170, 170);
@@ -280,6 +292,7 @@ function tractor() {
   );
 
   //HEADLIGHTS
+  push();
   fill(50, 50, 50);
   strokeWeight(1);
   ellipse(tractorX + 65 * tractorS, tractorY + 80 * tractorS, 10 * tractorS);
@@ -297,8 +310,10 @@ function tractor() {
     7 * tractorS,
     10 * tractorS
   );
+  pop();
 
   //WINDOWS
+  push();
   fill(255, 255, 255);
   beginShape();
   vertex(tractorX + 120 * tractorS, tractorY + 5 * tractorS);
@@ -579,6 +594,7 @@ function barn() {
   rect(barnX + 57 * barnS, barnY - 30 * barnS, 26 * barnS, 13 * barnS);
   pop();
 }
+
 function tree() {
   push();
   //TRUNK
@@ -613,7 +629,7 @@ function tree() {
   );
   endShape();
   //LEAVES
-  fill(107, 142, 35);
+  fill(40, 200, 50);
   ellipse(treeX + 185 * treeS, treeY - 60 * treeS, 40 * treeS);
   ellipse(treeX + 255 * treeS, treeY + 5 * treeS, 50 * treeS);
   ellipse(treeX + 165 * treeS, treeY + 30 * treeS, 50 * treeS);
@@ -628,17 +644,28 @@ function tree() {
   pop();
 }
 
-function keyPressed(e) {
-  if (e.keyCode === 32) {
-    jump();
-  }
-}
+//some variables
 let targetChickenY;
 let velocity = 1;
 let acceleration = 0.1;
 let state = "start";
 let isGameActive = false;
+let backgroundImage;
+let button;
+let image1, image2, image3;
+let logo;
+let backgroundImage2;
 
+//executionCount variable and functionality also obtained from chatGPT-----
+let executionCount = 0;
+
+function keyPressed(e) {
+  if (e.keyCode === 32) {
+    jump();
+  }
+}
+
+//making the chicken jump and counting how many times it jumped
 function jump() {
   chickenY -= 100;
   targetChickenY = chickenY + 100;
@@ -649,57 +676,18 @@ function jump() {
     }
   }, 100);
   targetChickenY -= 51;
-}
 
-function gamescreen() {
-  background(107, 142, 35);
-  roads();
-  roadsY += 1;
-  hay((hayS = 0.5), rotate(0.18));
-  hayY = hayY + 1;
-  hayX = hayX - 1;
-  /*tractor();
-  tractorY = tractorY + 1;
-  tractorX = tractorX - 3;*/
-  chicken();
-  chickenY = chickenY + 1;
-  barn(rotate(-0.1));
-  barnY = barnY + 1;
-  tree();
+  //counting jumps
+  executionCount++;
 
-  /*for (let i = 0; i < 5; i++) {
-    let tractorX = i * 40 + 50;
-    let tractorY = height / 2;
-    let tractorS = 0.6; }*/
-}
-
-function preload() {
-  backgroundImage = loadImage("farmBackground5.jpeg");
-}
-
-//losescreen
-function losescreen() {
-  fill(255, 255, 255);
-
-  image(backgroundImage, 0, 0);
-  const losetext = "you were hit by the tractor and turned into ";
-  const pig = "bacon!";
-  const chicken = "an egg!";
-  const sheep = "a sweater!";
-
-  if (keyIsDown(LEFT_ARROW)) {
-    console.log(losetext + sheep);
+  const desiredExecutionCount = 5;
+  if (executionCount === desiredExecutionCount) {
+    console.log("The function has been executed 5 times.");
   }
-
-  tractor();
 }
 
-let backgroundImage;
-let button;
-let image1, image2, image3;
-let logo;
-
 function preload() {
+  backgroundImage2 = loadImage("farmBackground2.jpg");
   backgroundImage = loadImage("farmBackground.jpg");
   image1 = loadImage("pig.png");
   image2 = loadImage("lamb.png");
@@ -707,16 +695,8 @@ function preload() {
   logo = loadImage("Countrylogo.png");
 }
 
-function setup() {
-  createCanvas(1024, 768);
-}
-
-function buttonPressed() {
-  console.log("Button pressed!");
-}
-
 //startscreen
-function startscreen() {
+function startScreen() {
   fill(255, 255, 255);
   image(backgroundImage, 0, 0, 1024, 768);
   noStroke();
@@ -726,12 +706,62 @@ function startscreen() {
   image(image2, 650, 250, image1.width * 0.37, image1.height * 0.27);
   image(image3, 170, 250, image1.width * 0.24, image1.height * 0.34);
   image(logo, 360, 40);
-  button = createButton("Start Game");
-  button.position(450, 570);
-  button.size(200, 50);
-  button.style("font-size", "24px");
 
-  button.mousePressed(buttonPressed);
+  push();
+  fill("green");
+  strokeWeight(3);
+  rect(430, 550, 200, 50, 10);
+  fill(255, 255, 255);
+  noStroke();
+  textSize(30);
+  text("Start Game", 453, 585);
+  pop();
+}
+
+//gamescreen
+function gameScreen() {
+  createCanvas(600, 560);
+  background(107, 142, 35);
+  roads();
+  roadsY += 1;
+  hay((hayS = 0.5), rotate(0.18));
+  hayY = hayY + 1;
+  hayX = hayX - 1;
+  tractor();
+  tractorY = tractorY + 1;
+  tractorX = tractorX - 3;
+  chicken();
+  chickenY = chickenY + 1;
+  barn(rotate(-0.1));
+  barnY = barnY + 1;
+  tree();
+  treeY = treeY + 1;
+}
+
+//losescreen
+function loseScreen() {
+  fill(255, 255, 255);
+
+  image(backgroundImage2, 0, 0, 1024, 768);
+
+  //Making the text for loosing the game --------------------
+  text("You were hit by the tractor and turned into ", 130, 120);
+
+  tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
+
+  push();
+  fill("green");
+  strokeWeight(3);
+  rect(430, 550, 200, 50, 10);
+  fill(255, 255, 255);
+  noStroke();
+  textSize(30);
+  text("Start Game", 453, 585);
+  pop();
+}
+
+function winScreen() {
+  background(255, 255, 255);
 }
 
 function draw() {
@@ -743,5 +773,44 @@ function draw() {
     winScreen();
   } else if (state === "lose") {
     loseScreen();
+  }
+
+  //got help from checking if the button was clicked from chatGPT------
+
+  if (state === "start") {
+    // Defining the coordinates and size of the area
+    const areaX = 432;
+    const areaY = 550;
+    const areaWidth = 200;
+    const areaHeight = 50;
+
+    // Check if the mouseclick is within the area
+    if (
+      mouseX >= areaX &&
+      mouseX <= areaX + areaWidth &&
+      mouseY >= areaY &&
+      mouseY <= areaY + areaHeight
+    ) {
+      // Area was clicked
+      console.log("Area clicked!");
+      state = "game";
+    }
+  } else if (state === "game" && targetChickenY < -250) {
+    console.log("state");
+    state = "lose";
+  } else if (state === "game" && targetChickenY > 280) {
+    console.log("other state");
+    state = "lose";
+  } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
+    state = "game";
+  }
+
+  /*else if (keyIsDown(32) && state === "game") {
+    isGameActive = true;
+  } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
+    state = "game";
+  } */
+  /*if (buttonPressed && state === "start") {
+    state === "game";
   } */
 }
