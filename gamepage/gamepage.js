@@ -1062,9 +1062,9 @@ function gameScreen() {
   hay((hayS = 0.5), rotate(0.18));
   hayY = hayY + 1;
   hayX = hayX - 1;
-  /*tractor();
+  tractor();
   tractorY = tractorY + 1;
-  tractorX = tractorX - 3; */
+  tractorX = tractorX - 3;
   chickenY = chickenY + 1;
   barn(rotate(-0.1));
   barnY = barnY + 1;
