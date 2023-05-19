@@ -735,7 +735,7 @@ function startscreen() {
 }
 
 function draw() {
-  startscreen(); /*if (state === "start") {
+  gamescreen(); /*if (state === "start") {
     startScreen();
   } else if (state === "game") {
     gameScreen();
