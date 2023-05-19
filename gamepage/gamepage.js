@@ -975,7 +975,7 @@ function keyPressed(e) {
   }
 }
 
-//making the chicken jump and counting how many times it jumped
+//making the animals jump and counting how many times it jumped
 function jump() {
   if (animal === "chicken") {
     chickenY -= 100;
