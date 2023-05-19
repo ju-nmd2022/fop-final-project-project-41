@@ -1,10 +1,12 @@
 function setup() {
   createCanvas(1024, 768);
   frameRate(30);
+  state = "start";
 }
 
 background(107, 142, 35);
 
+let animal = "none";
 let roadsX = 200;
 let roadsY = 200;
 
@@ -21,6 +23,14 @@ let chickenX = 200;
 let chickenY = 200;
 let chickenS = 1;
 
+let pigX = 250;
+let pigY = 250;
+let pigS = 1;
+
+let sheepX = 260;
+let sheepY = 260;
+let sheepS = 1;
+
 let barnX = 300;
 let barnY = -3100;
 let barnS = 1;
@@ -28,6 +38,24 @@ let barnS = 1;
 let treeX = 400;
 let treeY = 70;
 let treeS = 0.7;
+
+function mouseClicked() {
+  if (state === "start") {
+    // Check if the click happened on the start page
+    if (mouseX > 100 && mouseX < 200 && mouseY > 100 && mouseY < 200) {
+      animal = "chicken";
+      page = "game"; // Switch to the game page
+    } else if (mouseX > 250 && mouseX < 350 && mouseY > 250 && mouseY < 450) {
+      animal = "pig";
+      page = "game"; // Switch to the game page
+    } else if (mouseX > 260 && mouseX < 360 && mouseY > 260 && mouseY < 360) {
+      animal = "sheep";
+      page = "game"; // Switch to the game page
+    } else {
+      animal = "none";
+    }
+  }
+}
 
 function roads() {
   push();
@@ -653,8 +681,277 @@ function tree() {
   pop();
 }
 
+function sheep() {
+  fill(255, 255, 255);
+
+  //HEAD
+  push();
+  fill(240, 234, 214);
+  ellipse(sheepX + 90 * sheepS, sheepY + 183 * sheepS, 40 * sheepS);
+  pop();
+
+  //FEET
+  push();
+  fill(240, 234, 214);
+  rect(sheepX + 30 * sheepS, sheepY + 240 * sheepS, 7 * sheepS, 8 * sheepS);
+  rect(sheepX + 60 * sheepS, sheepY + 240 * sheepS, 7 * sheepS, 10 * sheepS);
+  rect(sheepX + 95 * sheepS, sheepY + 215 * sheepS, 5 * sheepS, 8 * sheepS);
+  pop();
+
+  //BODY
+  //the fluffy part
+  push();
+  ellipse(sheepX + 45 * sheepS, sheepY + 180 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 33 * sheepS, sheepY + 185 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 30 * sheepS, sheepY + 200 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 30 * sheepS, sheepY + 215 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 30 * sheepS, sheepY + 225 * sheepS, 10 * sheepS);
+  ellipse(sheepX + 35 * sheepS, sheepY + 235 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 48 * sheepS, sheepY + 238 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 65 * sheepS, sheepY + 238 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 78 * sheepS, sheepY + 235 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 87 * sheepS, sheepY + 225 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 94 * sheepS, sheepY + 215 * sheepS, 10 * sheepS);
+  ellipse(sheepX + 95 * sheepS, sheepY + 200 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 90 * sheepS, sheepY + 185 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 75 * sheepS, sheepY + 175 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 60 * sheepS, sheepY + 175 * sheepS, 20 * sheepS);
+  pop();
+
+  //the shape
+  push();
+  noStroke();
+  beginShape();
+  vertex(sheepX + 75 * sheepS, sheepY + 170 * sheepS);
+  bezierVertex(
+    sheepX + 40 * sheepS,
+    sheepY + 160 * sheepS,
+    sheepX + 5 * sheepS,
+    sheepY + 210 * sheepS,
+    sheepX + 39 * sheepS,
+    sheepY + 240 * sheepS
+  );
+  bezierVertex(
+    sheepX + 90 * sheepS,
+    sheepY + 260 * sheepS,
+    sheepX + 118 * sheepS,
+    sheepY + 190 * sheepS,
+    sheepX + 75 * sheepS,
+    sheepY + 170 * sheepS
+  );
+  endShape();
+  pop();
+
+  //EAR
+  ellipse(
+    sheepX + 93 * sheepS,
+    sheepY + 185 * sheepS,
+    15 * sheepS,
+    30 * sheepS
+  );
+
+  if (keyIsDown(LEFT_ARROW)) {
+    sheepX -= 4;
+  }
+  if (keyIsDown(RIGHT_ARROW)) {
+    sheepX += 4;
+  }
+}
+
+function pig() {
+  fill(253, 215, 228);
+
+  //NOSE
+  ellipse(pigX + 94 * pigS, pigY + 159 * pigS, 20 * pigS);
+
+  //HEAD
+  ellipse(pigX + 80 * pigS, pigY + 174 * pigS, 50 * pigS);
+
+  //EARS
+  beginShape();
+  vertex(pigX + 90 * pigS, pigY + 160 * pigS);
+  bezierVertex(
+    pigX + 100 * pigS,
+    pigY + 150 * pigS,
+    pigX + 100 * pigS,
+    pigY + 170 * pigS,
+    pigX + 105 * pigS,
+    pigY + 188 * pigS
+  );
+  bezierVertex(
+    pigX + 85 * pigS,
+    pigY + 180 * pigS,
+    pigX + 90 * pigS,
+    pigY + 175 * pigS,
+    pigX + 90 * pigS,
+    pigY + 170 * pigS
+  );
+  endShape();
+  beginShape();
+  vertex(pigX + 70 * pigS, pigY + 155 * pigS);
+  bezierVertex(
+    pigX + 65 * pigS,
+    pigY + 145 * pigS,
+    pigX + 55 * pigS,
+    pigY + 150 * pigS,
+    pigX + 50 * pigS,
+    pigY + 165 * pigS
+  );
+  bezierVertex(
+    pigX + 60 * pigS,
+    pigY + 164 * pigS,
+    pigX + 64 * pigS,
+    pigY + 162 * pigS,
+    pigX + 65 * pigS,
+    pigY + 157 * pigS
+  );
+  endShape();
+
+  //BACK LEG
+  beginShape();
+  vertex(pigX + 28 * pigS, pigY + 228 * pigS);
+  bezierVertex(
+    pigX + 30 * pigS,
+    pigY + 240 * pigS,
+    pigX + 33 * pigS,
+    pigY + 243 * pigS,
+    pigX + 37 * pigS,
+    pigY + 245 * pigS
+  );
+  vertex(pigX + 42 * pigS, pigY + 240 * pigS);
+  endShape();
+  push();
+  fill(139, 69, 19);
+  triangle(
+    pigX + 37 * pigS,
+    pigY + 245 * pigS,
+    pigX + 42 * pigS,
+    pigY + 240 * pigS,
+    pigX + 37 * pigS,
+    pigY + 234 * pigS
+  );
+  pop();
+
+  //BODY
+  strokeWeight(1);
+  push();
+  beginShape();
+  vertex(pigX + 75 * pigS, pigY + 170 * pigS);
+  bezierVertex(
+    pigX + 40 * pigS,
+    pigY + 160 * pigS,
+    pigX + 5 * pigS,
+    pigY + 210 * pigS,
+    pigX + 39 * pigS,
+    pigY + 240 * pigS
+  );
+  bezierVertex(
+    pigX + 90 * pigS,
+    pigY + 260 * pigS,
+    pigX + 118 * pigS,
+    pigY + 190 * pigS,
+    pigX + 75 * pigS,
+    pigY + 170 * pigS
+  );
+  endShape();
+  pop();
+
+  //FRONT LEGS
+  push();
+  beginShape();
+  vertex(pigX + 65 * pigS, pigY + 235 * pigS);
+  bezierVertex(
+    pigX + 65 * pigS,
+    pigY + 245 * pigS,
+    pigX + 75 * pigS,
+    pigY + 240 * pigS,
+    pigX + 85 * pigS,
+    pigY + 242 * pigS
+  );
+  vertex(pigX + 90 * pigS, pigY + 235 * pigS);
+  bezierVertex(
+    pigX + 75 * pigS,
+    pigY + 235 * pigS,
+    pigX + 74 * pigS,
+    pigY + 225 * pigS,
+    pigX + 75 * pigS,
+    pigY + 228 * pigS
+  );
+  endShape();
+  beginShape();
+  vertex(pigX + 86 * pigS, pigY + 203 * pigS);
+  bezierVertex(
+    pigX + 90 * pigS,
+    pigY + 210 * pigS,
+    pigX + 100 * pigS,
+    pigY + 210 * pigS,
+    pigX + 103 * pigS,
+    pigY + 210 * pigS
+  );
+  vertex(pigX + 108 * pigS, pigY + 202 * pigS);
+  bezierVertex(
+    pigX + 96 * pigS,
+    pigY + 204 * pigS,
+    pigX + 97 * pigS,
+    pigY + 200 * pigS,
+    pigX + 95 * pigS,
+    pigY + 192 * pigS
+  );
+  endShape();
+  pop();
+  push();
+  fill(139, 69, 19);
+  triangle(
+    pigX + 103 * pigS,
+    pigY + 210 * pigS,
+    pigX + 108 * pigS,
+    pigY + 202 * pigS,
+    pigX + 103 * pigS,
+    pigY + 202 * pigS
+  );
+  triangle(
+    pigX + 85 * pigS,
+    pigY + 242 * pigS,
+    pigX + 90 * pigS,
+    pigY + 235 * pigS,
+    pigX + 85 * pigS,
+    pigY + 235 * pigS
+  );
+  pop();
+
+  //TAIL
+  beginShape();
+  vertex(pigX + 51 * pigS, pigY + 215 * pigS);
+  bezierVertex(
+    pigX + 40 * pigS,
+    pigY + 214 * pigS,
+    pigX + 40 * pigS,
+    pigY + 207 * pigS,
+    pigX + 45 * pigS,
+    pigY + 203 * pigS
+  );
+  bezierVertex(
+    pigX + 55 * pigS,
+    pigY + 204 * pigS,
+    pigX + 50 * pigS,
+    pigY + 215 * pigS,
+    pigX + 35 * pigS,
+    pigY + 213 * pigS
+  );
+  endShape();
+  if (keyIsDown(LEFT_ARROW)) {
+    pigX -= 4;
+  }
+  if (keyIsDown(RIGHT_ARROW)) {
+    pigX += 4;
+  }
+}
+
 //some variables
+
 let targetChickenY;
+let targetPigY;
+let targetSheepY;
 let velocity = 1;
 let acceleration = 0.1;
 let state = "start";
@@ -676,15 +973,37 @@ function keyPressed(e) {
 
 //making the chicken jump and counting how many times it jumped
 function jump() {
-  chickenY -= 100;
-  targetChickenY = chickenY + 100;
-  setTimeout(() => {
-    while (chickenY < targetChickenY) {
-      velocity += 0.1;
-      chickenY += velocity;
-    }
-  }, 100);
-  targetChickenY -= 51;
+  if (animal === "chicken") {
+    chickenY -= 100;
+    targetChickenY = chickenY + 100;
+    setTimeout(() => {
+      while (chickenY < targetChickenY) {
+        velocity += 0.1;
+        chickenY += velocity;
+      }
+    }, 100);
+    targetChickenY -= 51;
+  } else if (animal === "pig") {
+    pigY -= 100;
+    targetPigY = pigY + 100;
+    setTimeout(() => {
+      while (pigY < targetPigY) {
+        velocity += 0.1;
+        pigY += velocity;
+      }
+    }, 100);
+    targetPigY -= 51;
+  } else if (animal === "sheep") {
+    sheepY -= 100;
+    targetSheepY = sheepY + 100;
+    setTimeout(() => {
+      while (sheepY < targetSheepY) {
+        velocity += 0.1;
+        sheepY += velocity;
+      }
+    }, 100);
+    targetSheepY -= 51;
+  }
 
   //counting jumps
   executionCount++;
@@ -739,12 +1058,20 @@ function gameScreen() {
   /*tractor();
   tractorY = tractorY + 1;
   tractorX = tractorX - 3; */
-  chicken();
   chickenY = chickenY + 1;
   barn(rotate(-0.1));
   barnY = barnY + 1;
   tree();
   treeY = treeY + 1;
+  pigY = pigY + 1;
+  sheepY = sheepY + 1;
+  if (animal === "chicken") {
+    chicken(chickenX, chickenY, chickenS);
+  } else if (animal === "pig") {
+    pig(pigX, pigY, pigS);
+  } else if (animal === "sheep") {
+    sheep(sheepX, sheepY, sheepS);
+  }
 
   //for loop to draw multiple tractors
   for (let i = 0; i < 5; i++) {
@@ -783,9 +1110,38 @@ function winScreen() {
 }
 
 function draw() {
-  startScreen();
   if (state === "start") {
-    startScreen();
+    startScreen(); // Check if the click happened on the start page
+    if (
+      mouseIsPressed &&
+      mouseX > 100 &&
+      mouseX < 350 &&
+      mouseY > 200 &&
+      mouseY < 400
+    ) {
+      animal = "chicken";
+      state = "game"; // Switch to the game state
+    } else if (
+      mouseIsPressed &&
+      mouseX > 400 &&
+      mouseX < 600 &&
+      mouseY > 200 &&
+      mouseY < 400
+    ) {
+      animal = "pig";
+      state = "game"; // Switch to the game state
+    } else if (
+      mouseIsPressed &&
+      mouseX > 650 &&
+      mouseX < 900 &&
+      mouseY > 200 &&
+      mouseY < 400
+    ) {
+      animal = "sheep";
+      state = "game"; // Switch to the game state
+    } else {
+      animal = "none";
+    }
   } else if (state === "game") {
     gameScreen();
   } else if (state === "win") {
@@ -793,38 +1149,39 @@ function draw() {
   } else if (state === "lose") {
     loseScreen();
   }
+}
 
-  //got help from checking if the button was clicked from chatGPT------
+//got help from checking if the button was clicked from chatGPT------
 
-  if (state === "start") {
-    // Defining the coordinates and size of the area
-    const areaX = 432;
-    const areaY = 550;
-    const areaWidth = 200;
-    const areaHeight = 50;
+if (state === "start") {
+  // Defining the coordinates and size of the area
+  const areaX = 432;
+  const areaY = 550;
+  const areaWidth = 200;
+  const areaHeight = 50;
 
-    // Check if the mouseclick is within the area
-    if (
-      mouseX >= areaX &&
-      mouseX <= areaX + areaWidth &&
-      mouseY >= areaY &&
-      mouseY <= areaY + areaHeight
-    ) {
-      // Area was clicked
-      console.log("Area clicked!");
-      state = "game";
-    }
-  } else if (state === "game" && targetChickenY < -250) {
-    console.log("state");
-    state = "lose";
-  } else if (state === "game" && targetChickenY > 280) {
-    console.log("other state");
-    state = "lose";
-  } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
+  // Check if the mouseclick is within the area
+  if (
+    mouseX >= areaX &&
+    mouseX <= areaX + areaWidth &&
+    mouseY >= areaY &&
+    mouseY <= areaY + areaHeight
+  ) {
+    // Area was clicked
+    console.log("Area clicked!");
     state = "game";
   }
+} else if (state === "game" && targetChickenY < -250) {
+  console.log("state");
+  state = "lose";
+} else if (state === "game" && targetChickenY > 280) {
+  console.log("other state");
+  state = "lose";
+} else if (keyIsDown(13) && (state === "lose" || state === "win")) {
+  state = "game";
+}
 
-  /*else if (keyIsDown(32) && state === "game") {
+/*else if (keyIsDown(32) && state === "game") {
     isGameActive = true;
   } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
     state = "game";
@@ -832,4 +1189,3 @@ function draw() {
   /*if (buttonPressed && state === "start") {
     state === "game";
   } */
-}
