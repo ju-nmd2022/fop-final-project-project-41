@@ -23,12 +23,12 @@ let chickenX = 200;
 let chickenY = 200;
 let chickenS = 1;
 
-let pigX = 250;
-let pigY = 250;
+let pigX = 200;
+let pigY = 200;
 let pigS = 1;
 
-let sheepX = 260;
-let sheepY = 260;
+let sheepX = 200;
+let sheepY = 200;
 let sheepS = 1;
 
 let barnX = 300;
@@ -1111,18 +1111,19 @@ function winScreen() {
   image(backgroundImage2, 0, 0, 1024, 768);
 
   //Making the text for loosing the game --------------------
-  text("You were hit by the tractor and turned into ", 130, 120);
+  textSize(30);
+  text("You won the game, congrats!", 130, 120);
 
   tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
 
   push();
   fill("green");
-  strokeWeight(3);
+  strokeWeight(0);
   rect(430, 550, 200, 50, 10);
   fill(255, 255, 255);
   noStroke();
   textSize(30);
-  text("Start Game", 453, 585);
+  text("Play Again", 453, 585);
   pop();
 }
 
