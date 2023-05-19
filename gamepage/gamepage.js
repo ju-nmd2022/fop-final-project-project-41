@@ -1,10 +1,14 @@
 function setup() {
   createCanvas(1024, 768);
   frameRate(30);
-  state = "start";
+  state = "lose";
 }
 
 background(107, 142, 35);
+
+let baconImage;
+let eggImage;
+let sweaterImage;
 
 let animal = "none";
 let roadsX = 200;
@@ -1021,6 +1025,9 @@ function preload() {
   image2 = loadImage("lamb.png");
   image3 = loadImage("chicken.png");
   logo = loadImage("Countrylogo.png");
+  baconImage = loadImage("bacon.png");
+  eggImage = loadImage("egg.png");
+  sweaterImage = loadImage("sweater.png");
 }
 
 //startscreen
@@ -1090,13 +1097,14 @@ function loseScreen() {
   image(backgroundImage2, 0, 0, 1024, 768);
 
   //Making the text for loosing the game --------------------
+  textSize(24);
   text("You were hit by the tractor and turned into ", 130, 120);
 
   tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
 
   push();
   fill("green");
-  strokeWeight(3);
+  strokeWeight(0);
   rect(430, 550, 200, 50, 10);
   fill(255, 255, 255);
   noStroke();
@@ -1166,6 +1174,18 @@ function draw() {
     winScreen();
   } else if (state === "lose") {
     loseScreen();
+    {
+      if (animal === "pig") {
+        image(baconImage, 200, 200, width, height);
+        text("You were hit by the tractor and turned into bacon", 130, 120);
+      } else if (animal === "chicken") {
+        image(eggImage, 200, 200, width, height);
+        text("You were hit by the tractor and turned into egg", 130, 120);
+      } else if (animal === "sheep") {
+        image(sweaterImage, 200, 200, width, height);
+        text("You were hit by the tractor and turned into a sweater", 130, 120);
+      }
+    }
   }
 }
 
