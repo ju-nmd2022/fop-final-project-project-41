@@ -1209,7 +1209,7 @@ function draw() {
 
 //got help from checking if the button was clicked from chatGPT------
 
-if (state === "start") {
+/*if (state === "start") {
 } else if (state === "game" && targetChickenY < -250) {
   console.log("state");
   state = "lose";
@@ -1219,12 +1219,4 @@ if (state === "start") {
 } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
   state = "game";
 }
-
-/*else if (keyIsDown(32) && state === "game") {
-    isGameActive = true;
-  } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
-    state = "game";
-  } 
-  /*if (buttonPressed && state === "start") {
-    state === "game";
-  } */
+*/
