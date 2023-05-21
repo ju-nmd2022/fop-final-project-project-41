@@ -1,7 +1,7 @@
 function setup() {
   createCanvas(1024, 768);
   frameRate(30);
-  state = "lose";
+  state = "start";
 }
 
 background(107, 142, 35);
@@ -11,6 +11,7 @@ let eggImage;
 let sweaterImage;
 
 let animal = "none";
+
 let roadsX = 200;
 let roadsY = 200;
 
@@ -951,7 +952,7 @@ function pig() {
   }
 }
 
-//some variables
+//some variables --------------------------------------------
 
 let targetChickenY;
 let targetPigY;
