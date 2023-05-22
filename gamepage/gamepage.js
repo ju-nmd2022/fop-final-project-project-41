@@ -4,8 +4,8 @@ function setup() {
   state = "start";
 
   //for loop to draw multiple tractors
-  for (let i = 0; i < 3; i++) {
-    let tractorX = i * 200;
+  for (let i = 0.75; i < 3; i++) {
+    let tractorX = i * 100;
     let tractorY = i * 200;
     let tractorSpeed = 1;
 
@@ -1109,7 +1109,7 @@ function gameScreen() {
     let tractor = tractors[i];
 
     // Update tractor's position
-    tractor.x += tractor.speed;
+    tractor.x += tractor.speed * 1.8;
     tractor.y += tractor.speed;
 
     // Check if the tractor reaches the bottom of the canvas
