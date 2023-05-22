@@ -1,7 +1,7 @@
 function setup() {
   createCanvas(1024, 768);
   frameRate(30);
-  state = "win";
+  state = "start";
 }
 
 background(107, 142, 35);
