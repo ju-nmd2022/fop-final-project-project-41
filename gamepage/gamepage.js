@@ -1037,9 +1037,9 @@ function preload() {
   image2 = loadImage("lamb.png");
   image3 = loadImage("chicken.png");
   logo = loadImage("Countrylogo.png");
-  baconImage = loadImage("bacon.png");
+  baconImage = loadImage("baconthisone.png");
   eggImage = loadImage("eggthisone.png");
-  sweaterImage = loadImage("sweater.png");
+  sweaterImage = loadImage("sweaterthisone.png");
 }
 
 //startscreen
