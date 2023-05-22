@@ -5,11 +5,11 @@ function setup() {
 
   //for loop to draw multiple tractors
   for (let i = 0; i < 5; i++) {
-    let tractorX = i * 100;
-    let tractorY = i * 200;
-    let tractorSpeed = random(1, 3);
+    let tractorXt = i * -100;
+    let tractorYt = i * 500;
+    let tractorSpeed = random(2, 2);
 
-    let tractor = { x: tractorX, y: tractorY, speed: tractorSpeed };
+    let tractor = { x: tractorXt, y: tractorYt, speed: tractorSpeed };
 
     tractors.push(tractor);
   }
@@ -120,7 +120,7 @@ function hay() {
   pop();
 }
 
-function tractor(tractorX, tractorY) {
+function tractor(tractorXt, tractorYt) {
   //PART WHERE YOU SIT
   push();
   fill(255, 0, 0);
@@ -1098,10 +1098,13 @@ function gameScreen() {
 
     // Update tractor's position
     tractor.x += tractor.speed;
+    tractor.y += tractor.speed;
 
     // Check if the tractor reaches the bottom of the canvas
-    if (tractor.y > height) {
-      tractor.y = 0; // Reset the tractor's position to the top
+    if (tractor.x > height) {
+      tractor.x = 0; // Reset the tractor's position to the top
+    } else if (tractor.y > height) {
+      tractor.y = 0;
     }
 
     // Draw the tractor at its current position
@@ -1111,7 +1114,7 @@ function gameScreen() {
 
 function drawTractor(x, y) {
   // Drawing code for the tractor
-  rect(x, y, 30, 40);
+  rect(x, y, 20, 20);
   // Add additional drawing code as needed for the tractor shape
 }
 
