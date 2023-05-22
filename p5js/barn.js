@@ -2,7 +2,7 @@ let barnX = 200;
 let barnY = 200;
 let barnS = 1;
 
-background(255, 255, 255);
+background(107, 142, 35);
 
 function barn() {
   //GREY PART OF ROOF
