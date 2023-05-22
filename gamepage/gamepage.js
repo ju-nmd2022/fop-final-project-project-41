@@ -4,12 +4,12 @@ function setup() {
   state = "start";
 
   //for loop to draw multiple tractors
-  for (let i = 0; i < 5; i++) {
-    let tractorXt = i * -100;
-    let tractorYt = i * 500;
-    let tractorSpeed = random(2, 2);
+  for (let i = 0; i < 3; i++) {
+    let tractorX = i * 200;
+    let tractorY = i * 200;
+    let tractorSpeed = 1;
 
-    let tractor = { x: tractorXt, y: tractorYt, speed: tractorSpeed };
+    let tractor = { x: tractorX, y: tractorY, speed: tractorSpeed };
 
     tractors.push(tractor);
   }
@@ -30,8 +30,8 @@ let hayX = 600;
 let hayY = -438;
 let hayS = 1;
 
-let tractorX = 500;
-let tractorY = 110;
+let tractorX = 400;
+let tractorY = 150;
 let tractorS = 0.6;
 
 let chickenX = 200;
@@ -120,7 +120,7 @@ function hay() {
   pop();
 }
 
-function tractor(tractorXt, tractorYt) {
+function tractor(tractorX, tractorY) {
   //PART WHERE YOU SIT
   push();
   fill(255, 0, 0);
@@ -1126,7 +1126,7 @@ function gameScreen() {
 
 function drawTractor(x, y) {
   // Drawing code for the tractor
-  rect(x, y, 20, 20);
+  tractor(x, y);
   // Add additional drawing code as needed for the tractor shape
 }
 
