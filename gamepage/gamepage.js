@@ -1086,10 +1086,22 @@ function gameScreen() {
   sheepY = sheepY + 1;
   if (animal === "chicken") {
     chicken(chickenX, chickenY, chickenS);
+    if (targetChickenY < -250 || targetChickenY > 280) {
+      console.log("state");
+      state = "lose";
+    }
   } else if (animal === "pig") {
     pig(pigX, pigY, pigS);
+    if (targetPigY < -250 || targetPigY > 280) {
+      console.log("state");
+      state = "lose";
+    }
   } else if (animal === "sheep") {
     sheep(sheepX, sheepY, sheepS);
+    if (targetSheepY < -250 || targetSheepY > 280) {
+      console.log("state");
+      state = "lose";
+    }
   }
 
   // Update and draw each tractor
@@ -1121,12 +1133,12 @@ function drawTractor(x, y) {
 //losescreen
 function loseScreen() {
   fill(255, 255, 255);
+  createCanvas(1024, 768);
 
   image(backgroundImage2, 0, 0, 1024, 768);
 
   //Making the text for loosing the game --------------------
   textSize(24);
-  text("You were hit by the tractor and turned into ", 130, 120);
 
   tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
 
@@ -1139,10 +1151,22 @@ function loseScreen() {
   textSize(30);
   text("Start Game", 453, 585);
   pop();
+
+  if (animal === "pig") {
+    image(baconImage, 200, 200, width, height);
+    text("You were hit by the tractor and turned into bacon", 130, 120);
+  } else if (animal === "chicken") {
+    image(eggImage, 200, 200, width, height);
+    text("You were hit by the tractor and turned into an egg", 130, 120);
+  } else if (animal === "sheep") {
+    image(sweaterImage, 200, 200, width, height);
+    text("You were hit by the tractor and turned into a sweater", 130, 120);
+  }
 }
 
 function winScreen() {
   fill(255, 255, 255);
+  createCanvas(1024, 768);
 
   image(backgroundImage2, 0, 0, 1024, 768);
 
