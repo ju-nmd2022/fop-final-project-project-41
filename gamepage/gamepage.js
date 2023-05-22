@@ -1038,7 +1038,7 @@ function preload() {
   image3 = loadImage("chicken.png");
   logo = loadImage("Countrylogo.png");
   baconImage = loadImage("bacon.png");
-  eggImage = loadImage("egg.png");
+  eggImage = loadImage("eggthisone.png");
   sweaterImage = loadImage("sweater.png");
 }
 
