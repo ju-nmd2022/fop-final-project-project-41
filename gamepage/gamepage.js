@@ -1037,9 +1037,9 @@ function preload() {
   image2 = loadImage("lamb.png");
   image3 = loadImage("chicken.png");
   logo = loadImage("Countrylogo.png");
-  baconImage = loadImage("bacon.png");
-  eggImage = loadImage("egg.png");
-  sweaterImage = loadImage("sweater.png");
+  baconImage = loadImage("baconthisone.png");
+  eggImage = loadImage("eggthisone.png");
+  sweaterImage = loadImage("sweaterthisone.png");
 }
 
 //startscreen
@@ -1149,18 +1149,20 @@ function loseScreen() {
   fill(255, 255, 255);
   noStroke();
   textSize(30);
-  text("Start Game", 453, 585);
+  text("Play Again", 453, 585);
   pop();
 
+  textSize(30);
+
   if (animal === "pig") {
-    image(baconImage, 200, 200, width, height);
-    text("You were hit by the tractor and turned into bacon", 130, 120);
+    image(baconImage, 150, 440, image1.width * 0.27, image1.height * 0.27);
+    text("You were hit by the tractor and turned into bacon!", 130, 120);
   } else if (animal === "chicken") {
-    image(eggImage, 200, 200, width, height);
-    text("You were hit by the tractor and turned into an egg", 130, 120);
+    image(eggImage, 150, 440, image1.width * 0.27, image1.height * 0.27);
+    text("You were hit by the tractor and turned into an egg!", 130, 120);
   } else if (animal === "sheep") {
-    image(sweaterImage, 200, 200, width, height);
-    text("You were hit by the tractor and turned into a sweater", 130, 120);
+    image(sweaterImage, 150, 440, image1.width * 0.27, image1.height * 0.27);
+    text("You were hit by the tractor and turned into a sweater!", 130, 120);
   }
 }
 
@@ -1244,18 +1246,6 @@ function draw() {
     mouseY < 650
   ) {
     state = "start";
-    {
-      if (animal === "pig") {
-        image(baconImage, 200, 200, width, height);
-        text("You were hit by the tractor and turned into bacon", 130, 120);
-      } else if (animal === "chicken") {
-        image(eggImage, 200, 200, width, height);
-        text("You were hit by the tractor and turned into egg", 130, 120);
-      } else if (animal === "sheep") {
-        image(sweaterImage, 200, 200, width, height);
-        text("You were hit by the tractor and turned into a sweater", 130, 120);
-      }
-    }
   }
 }
 
