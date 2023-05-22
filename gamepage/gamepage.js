@@ -2,6 +2,17 @@ function setup() {
   createCanvas(1024, 768);
   frameRate(30);
   state = "start";
+
+  //for loop to draw multiple tractors
+  for (let i = 0; i < 5; i++) {
+    let tractorX = i * 100;
+    let tractorY = i * 200;
+    let tractorSpeed = random(1, 3);
+
+    let tractor = { x: tractorX, y: tractorY, speed: tractorSpeed };
+
+    tractors.push(tractor);
+  }
 }
 
 background(107, 142, 35);
@@ -22,7 +33,6 @@ let hayS = 1;
 let tractorX = 500;
 let tractorY = 110;
 let tractorS = 0.6;
-let tractorSpeed = 2;
 
 let chickenX = 200;
 let chickenY = 200;
@@ -966,6 +976,7 @@ let button;
 let image1, image2, image3;
 let logo;
 let backgroundImage2;
+let tractors = [];
 
 //executionCount variable and functionality also obtained from chatGPT-----
 let executionCount = 0;
@@ -1063,9 +1074,9 @@ function gameScreen() {
   hay((hayS = 0.5), rotate(0.18));
   hayY = hayY + 1;
   hayX = hayX - 1;
-  tractor();
+  /*tractor();
   tractorY = tractorY + 1;
-  tractorX = tractorX - 3;
+  tractorX = tractorX - 3; */
   chickenY = chickenY + 1;
   barn(rotate(-0.1));
   barnY = barnY + 1;
@@ -1081,14 +1092,27 @@ function gameScreen() {
     sheep(sheepX, sheepY, sheepS);
   }
 
-  //for loop to draw multiple tractors
-  for (let i = 0; i < 5; i++) {
-    let tractorX = i * 100;
-    let tractorY = i * 100;
+  // Update and draw each tractor
+  for (let i = 0; i < tractors.length; i++) {
+    let tractor = tractors[i];
 
-    // Call the tractor function to draw an instance
-    tractor(tractorX, tractorY);
+    // Update tractor's position
+    tractor.x += tractor.speed;
+
+    // Check if the tractor reaches the bottom of the canvas
+    if (tractor.y > height) {
+      tractor.y = 0; // Reset the tractor's position to the top
+    }
+
+    // Draw the tractor at its current position
+    drawTractor(tractor.x, tractor.y);
   }
+}
+
+function drawTractor(x, y) {
+  // Drawing code for the tractor
+  rect(x, y, 30, 40);
+  // Add additional drawing code as needed for the tractor shape
 }
 
 //losescreen
@@ -1210,7 +1234,7 @@ function draw() {
 
 //got help from checking if the button was clicked from chatGPT------
 
-/*if (state === "start") {
+/*(state === "start") {
 } else if (state === "game" && targetChickenY < -250) {
   console.log("state");
   state = "lose";
@@ -1219,5 +1243,4 @@ function draw() {
   state = "lose";
 } else if (keyIsDown(13) && (state === "lose" || state === "win")) {
   state = "game";
-}
-*/
+} */
