@@ -4,6 +4,8 @@ strokeWeight(30);
 line(0, 100, 600, 250);
 pop();
 
+background(107, 142, 35);
+
 let pigX = 200;
 let pigY = 200;
 let pigS = 1;
