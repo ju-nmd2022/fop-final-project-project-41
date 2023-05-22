@@ -1113,9 +1113,9 @@ function gameScreen() {
     tractor.y += tractor.speed;
 
     // Check if the tractor reaches the bottom of the canvas
-    if (tractor.x > height) {
+    /*if (tractor.x > height) {
       tractor.x = 0; // Reset the tractor's position to the top
-    } else if (tractor.y > height) {
+    } */ if (tractor.y > height) {
       tractor.y = 0;
     }
 
