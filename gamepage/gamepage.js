@@ -1077,23 +1077,14 @@ function gameScreen() {
   hay((hayS = 0.5), rotate(0.18));
   hayY = hayY + 1;
   hayX = hayX - 1;
-  //tractor();
-
-  tractor(tractorX, tractorY);
-  tractor(tractorX + 40, tractorY - 200);
-  tractor(tractorX + 600, tractorY - 200);
-  tractor(tractorX, tractorY, scale(-1, 1));
-  tractor(tractorX + 600, tractorY - 400);
-  tractor(tractorX + 1300, tractorY - 800);
-  tractorY = tractorY + 1;
-  tractorX = tractorX - 3;
+  pigY = pigY + 1;
+  sheepY = sheepY + 1;
   chickenY = chickenY + 1;
   barn(rotate(-0.1));
   barnY = barnY + 1;
   tree();
   treeY = treeY + 1;
-  pigY = pigY + 1;
-  sheepY = sheepY + 1;
+
   if (animal === "chicken") {
     chicken(chickenX, chickenY, chickenS);
     if (targetChickenY < -250 || targetChickenY > 280) {
@@ -1113,6 +1104,16 @@ function gameScreen() {
       state = "lose";
     }
   }
+  tractor();
+
+  tractor(tractorX, tractorY);
+  tractor(tractorX + 40, tractorY - 200);
+  tractor(tractorX + 600, tractorY - 200);
+  tractor(tractorX, tractorY, scale(-1, 1));
+  tractor(tractorX + 600, tractorY - 400);
+  tractor(tractorX + 1300, tractorY - 800);
+  tractorY = tractorY + 1;
+  tractorX = tractorX - 3;
 
   // Update and draw each tractor
   /*for (let i = 0; i < tractors.length; i++) {
