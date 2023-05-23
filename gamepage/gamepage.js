@@ -1237,6 +1237,7 @@ function draw() {
   } else if (state === "win") {
     winScreen();
   }
+  //hello
 
   // How to check if the distance is too short and then you will loose-----------------
   let distance = int(dist(chickenX, chickenY, tractorX, tractorY));
