@@ -2,19 +2,18 @@ function setup() {
   createCanvas(1024, 768);
   frameRate(30);
   state = "start";
-}
 
-//for loop to draw multiple tractors
-/*for (let i = 0.79; i < 3; i++) {
-    let tractorX = roadsX - 200;
+  //for loop to draw multiple tractors
+  for (let i = 0.75; i < 3; i++) {
+    let tractorX = i * 100;
     let tractorY = i * 200;
     let tractorSpeed = 1;
 
-    let tractor = { x: tractorX, y: tractorY + 50, speed: tractorSpeed };
+    let tractor = { x: tractorX, y: tractorY, speed: tractorSpeed };
 
     tractors.push(tractor);
   }
-} */
+}
 
 background(107, 142, 35);
 
@@ -31,8 +30,8 @@ let hayX = 600;
 let hayY = -438;
 let hayS = 1;
 
-let tractorX = 300;
-let tractorY = 120;
+let tractorX = 400;
+let tractorY = 150;
 let tractorS = 0.6;
 
 let chickenX = 200;
@@ -1078,16 +1077,10 @@ function gameScreen() {
   hay((hayS = 0.5), rotate(0.18));
   hayY = hayY + 1;
   hayX = hayX - 1;
-  tractor(tractorX, tractorY);
-  tractor(tractorX + 40, tractorY - 200);
-  tractor(tractorX + 600, tractorY - 200);
-  tractor(tractorX, tractorY, scale(-1, 1));
-  tractor(tractorX + 600, tractorY - 400);
-  tractor(tractorX + 1300, tractorY - 800);
+  /*tractor();
   tractorY = tractorY + 1;
-  tractorX = tractorX - 3;
-
-  //chickenY = chickenY + 1;
+  tractorX = tractorX - 3; */
+  chickenY = chickenY + 1;
   barn(rotate(-0.1));
   barnY = barnY + 1;
   tree();
@@ -1115,30 +1108,30 @@ function gameScreen() {
   }
 
   // Update and draw each tractor
-  /*for (let i = 1; i < tractors.length; i++) {
+  for (let i = 0; i < tractors.length; i++) {
     let tractor = tractors[i];
 
     // Update tractor's position
     tractor.x += tractor.speed * 1.8;
-    tractor.y += tractor.speed; */
+    tractor.y += tractor.speed;
 
-  // Check if the tractor reaches the bottom of the canvas
-  /*if (tractor.x > height) {
+    // Check if the tractor reaches the bottom of the canvas
+    if (tractor.x > height) {
       tractor.x = 0; // Reset the tractor's position to the top
-    } if (tractor.y > height) {
+    } else if (tractor.y > height) {
       tractor.y = 0;
     }
 
     // Draw the tractor at its current position
     drawTractor(tractor.x, tractor.y);
-  } */
+  }
 }
 
-/*function drawTractor(x, y) {
+function drawTractor(x, y) {
   // Drawing code for the tractor
   tractor(x, y);
   // Add additional drawing code as needed for the tractor shape
-} */
+}
 
 //losescreen
 function loseScreen() {
@@ -1237,7 +1230,6 @@ function draw() {
   } else if (state === "win") {
     winScreen();
   }
-  //hello
 
   // How to check if the distance is too short and then you will loose-----------------
   let distance = int(dist(chickenX, chickenY, tractorX, tractorY));
