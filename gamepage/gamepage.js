@@ -28,7 +28,7 @@ let roadsY = 200;
 
 let hayX = 600;
 let hayY = -438;
-let hayS = 1;
+let hayS = 0.5;
 
 let tractorX = 300;
 let tractorY = 120;
@@ -1075,8 +1075,19 @@ function gameScreen() {
   roads();
   roadsY += 1;
   hay((hayS = 0.5), rotate(0.18));
+  hay;
   hayY = hayY + 1;
   hayX = hayX - 1;
+  tractor();
+
+  tractor(tractorX, tractorY);
+  tractor(tractorX + 40, tractorY - 200);
+  tractor(tractorX + 600, tractorY - 200);
+  tractor(tractorX, tractorY);
+  tractor(tractorX + 600, tractorY - 400);
+  tractor(tractorX + 1300, tractorY - 800);
+  tractorY = tractorY + 1;
+  tractorX = tractorX - 3;
   pigY = pigY + 1;
   sheepY = sheepY + 1;
   chickenY = chickenY + 1;
@@ -1104,16 +1115,6 @@ function gameScreen() {
       state = "lose";
     }
   }
-  tractor();
-
-  tractor(tractorX, tractorY);
-  tractor(tractorX + 40, tractorY - 200);
-  tractor(tractorX + 600, tractorY - 200);
-  tractor(tractorX, tractorY, scale(-1, 1));
-  tractor(tractorX + 600, tractorY - 400);
-  tractor(tractorX + 1300, tractorY - 800);
-  tractorY = tractorY + 1;
-  tractorX = tractorX - 3;
 
   // Update and draw each tractor
   /*for (let i = 0; i < tractors.length; i++) {
@@ -1150,10 +1151,6 @@ function loseScreen() {
 
   //Making the text for loosing the game --------------------
   textSize(24);
-
-  push();
-  tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
-  pop();
 
   push();
   fill("green");
