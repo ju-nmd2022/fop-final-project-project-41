@@ -1074,9 +1074,10 @@ function gameScreen() {
   background(107, 142, 35);
   roads();
   roadsY += 1;
-  hay((hayS = 0.5), rotate(0.18));
+  hay(rotate(0.18));
+  hay(hayX - 100, hayY + 900);
   hayY = hayY + 1;
-  hayX = hayX - 1;
+  hayX = hayX - 0.6;
   tractor();
 
   tractor(tractorX, tractorY);
