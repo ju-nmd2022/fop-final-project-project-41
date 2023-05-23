@@ -1025,7 +1025,6 @@ function jump() {
   executionCount++;
 
   const desiredExecutionCount = 4;
-  let state;
 
   if (executionCount === desiredExecutionCount) {
     console.log("The function has been executed 74 times.");
