@@ -6,7 +6,7 @@ pop();
 
 background(107, 142, 35);
 
-let pigX = 200;
+let pigX = 100;
 let pigY = 200;
 let pigS = 1;
 
@@ -198,3 +198,244 @@ function pig() {
 function draw() {
   pig();
 }
+
+let chickenX = 220;
+let chickenY = 200;
+let chickenS = 1;
+
+function chicken() {
+  fill(255, 255, 255);
+  strokeWeight(1);
+
+  //BEAK
+  push();
+  fill(255, 165, 0);
+  triangle(
+    chickenX + 100 * chickenS,
+    chickenY + 170 * chickenS,
+    chickenX + 108 * chickenS,
+    chickenY + 160 * chickenS,
+    chickenX + 95 * chickenS,
+    chickenY + 155 * chickenS
+  );
+  pop();
+
+  //HEAD
+  ellipse(chickenX + 85 * chickenS, chickenY + 169 * chickenS, 40 * chickenS);
+
+  //MOHAWK
+  push();
+  fill(255, 0, 0);
+  beginShape();
+  vertex(chickenX + 75 * chickenS, chickenY + 165 * chickenS);
+  bezierVertex(
+    chickenX + 65 * chickenS,
+    chickenY + 150 * chickenS,
+    chickenX + 70 * chickenS,
+    chickenY + 150 * chickenS,
+    chickenX + 75 * chickenS,
+    chickenY + 155 * chickenS
+  );
+  bezierVertex(
+    chickenX + 75 * chickenS,
+    chickenY + 145 * chickenS,
+    chickenX + 80 * chickenS,
+    chickenY + 145 * chickenS,
+    chickenX + 80 * chickenS,
+    chickenY + 155 * chickenS
+  );
+  bezierVertex(
+    chickenX + 80 * chickenS,
+    chickenY + 145 * chickenS,
+    chickenX + 85 * chickenS,
+    chickenY + 147 * chickenS,
+    chickenX + 85 * chickenS,
+    chickenY + 153 * chickenS
+  );
+  endShape(CLOSE);
+  pop();
+
+  //FEET
+  push();
+  fill(255, 165, 0);
+  ellipse(
+    chickenX + 70 * chickenS,
+    chickenY + 240 * chickenS,
+    25 * chickenS,
+    10 * chickenS
+  );
+  pop();
+
+  //BODY
+  push();
+  beginShape();
+  vertex(chickenX + 75 * chickenS, chickenY + 170 * chickenS);
+  bezierVertex(
+    chickenX + 40 * chickenS,
+    chickenY + 160 * chickenS,
+    chickenX + 5 * chickenS,
+    chickenY + 210 * chickenS,
+    chickenX + 39 * chickenS,
+    chickenY + 240 * chickenS
+  );
+  bezierVertex(
+    chickenX + 90 * chickenS,
+    chickenY + 260 * chickenS,
+    chickenX + 118 * chickenS,
+    chickenY + 190 * chickenS,
+    chickenX + 75 * chickenS,
+    chickenY + 170 * chickenS
+  );
+  endShape();
+  pop();
+
+  //WING ON SIDE
+  push();
+  fill(240, 240, 240);
+  beginShape();
+  vertex(chickenX + 85 * chickenS, chickenY + 220 * chickenS);
+  bezierVertex(
+    chickenX + 95 * chickenS,
+    chickenY + 190 * chickenS,
+    chickenX + 65 * chickenS,
+    chickenY + 190 * chickenS,
+    chickenX + 60 * chickenS,
+    chickenY + 210 * chickenS
+  );
+  bezierVertex(
+    chickenX + 57 * chickenS,
+    chickenY + 220 * chickenS,
+    chickenX + 65 * chickenS,
+    chickenY + 220 * chickenS,
+    chickenX + 68 * chickenS,
+    chickenY + 215 * chickenS
+  );
+  bezierVertex(
+    chickenX + 60 * chickenS,
+    chickenY + 225 * chickenS,
+    chickenX + 70 * chickenS,
+    chickenY + 225 * chickenS,
+    chickenX + 75 * chickenS,
+    chickenY + 215 * chickenS
+  );
+  bezierVertex(
+    chickenX + 72 * chickenS,
+    chickenY + 230 * chickenS,
+    chickenX + 85 * chickenS,
+    chickenY + 225 * chickenS,
+    chickenX + 85 * chickenS,
+    chickenY + 220 * chickenS
+  );
+  endShape();
+  pop();
+
+  //WING ON BUTT
+  push();
+  fill(240, 240, 240);
+  beginShape();
+  vertex(chickenX + 30 * chickenS, chickenY + 220 * chickenS);
+  bezierVertex(
+    chickenX + 10 * chickenS,
+    chickenY + 215 * chickenS,
+    chickenX + 15 * chickenS,
+    chickenY + 195 * chickenS,
+    chickenX + 25 * chickenS,
+    chickenY + 205 * chickenS
+  );
+  bezierVertex(
+    chickenX + 20 * chickenS,
+    chickenY + 190 * chickenS,
+    chickenX + 25 * chickenS,
+    chickenY + 185 * chickenS,
+    chickenX + 30 * chickenS,
+    chickenY + 200 * chickenS
+  );
+  bezierVertex(
+    chickenX + 30 * chickenS,
+    chickenY + 185 * chickenS,
+    chickenX + 35 * chickenS,
+    chickenY + 185 * chickenS,
+    chickenX + 37 * chickenS,
+    chickenY + 198 * chickenS
+  );
+  endShape(CLOSE);
+  pop();
+}
+
+chicken();
+
+let sheepX = 330;
+let sheepY = 200;
+let sheepS = 1;
+
+function sheep() {
+  fill(255, 255, 255);
+
+  //HEAD
+  push();
+  fill(240, 234, 214);
+  ellipse(sheepX + 90 * sheepS, sheepY + 183 * sheepS, 40 * sheepS);
+  pop();
+
+  //FEET
+  push();
+  fill(240, 234, 214);
+  rect(sheepX + 30 * sheepS, sheepY + 240 * sheepS, 7 * sheepS, 8 * sheepS);
+  rect(sheepX + 60 * sheepS, sheepY + 240 * sheepS, 7 * sheepS, 10 * sheepS);
+  rect(sheepX + 95 * sheepS, sheepY + 215 * sheepS, 5 * sheepS, 8 * sheepS);
+  pop();
+
+  //BODY
+  //the fluffy part
+  push();
+  ellipse(sheepX + 45 * sheepS, sheepY + 180 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 33 * sheepS, sheepY + 185 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 30 * sheepS, sheepY + 200 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 30 * sheepS, sheepY + 215 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 30 * sheepS, sheepY + 225 * sheepS, 10 * sheepS);
+  ellipse(sheepX + 35 * sheepS, sheepY + 235 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 48 * sheepS, sheepY + 238 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 65 * sheepS, sheepY + 238 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 78 * sheepS, sheepY + 235 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 87 * sheepS, sheepY + 225 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 94 * sheepS, sheepY + 215 * sheepS, 10 * sheepS);
+  ellipse(sheepX + 95 * sheepS, sheepY + 200 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 90 * sheepS, sheepY + 185 * sheepS, 15 * sheepS);
+  ellipse(sheepX + 75 * sheepS, sheepY + 175 * sheepS, 20 * sheepS);
+  ellipse(sheepX + 60 * sheepS, sheepY + 175 * sheepS, 20 * sheepS);
+  pop();
+
+  //the shape
+  push();
+  noStroke();
+  beginShape();
+  vertex(sheepX + 75 * sheepS, sheepY + 170 * sheepS);
+  bezierVertex(
+    sheepX + 40 * sheepS,
+    sheepY + 160 * sheepS,
+    sheepX + 5 * sheepS,
+    sheepY + 210 * sheepS,
+    sheepX + 39 * sheepS,
+    sheepY + 240 * sheepS
+  );
+  bezierVertex(
+    sheepX + 90 * sheepS,
+    sheepY + 260 * sheepS,
+    sheepX + 118 * sheepS,
+    sheepY + 190 * sheepS,
+    sheepX + 75 * sheepS,
+    sheepY + 170 * sheepS
+  );
+  endShape();
+  pop();
+
+  //EAR
+  ellipse(
+    sheepX + 93 * sheepS,
+    sheepY + 185 * sheepS,
+    15 * sheepS,
+    30 * sheepS
+  );
+}
+
+sheep();
