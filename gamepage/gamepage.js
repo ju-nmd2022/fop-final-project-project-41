@@ -4,7 +4,7 @@ function setup() {
   state = "start";
 
   //for loop to draw multiple tractors
-  for (let i = 0.75; i < 3; i++) {
+  /*for (let i = 0.75; i < 3; i++) {
     let tractorX = i * 100;
     let tractorY = i * 200;
     let tractorSpeed = 1;
@@ -12,7 +12,7 @@ function setup() {
     let tractor = { x: tractorX, y: tractorY, speed: tractorSpeed };
 
     tractors.push(tractor);
-  }
+  } */
 }
 
 background(107, 142, 35);
@@ -1115,7 +1115,7 @@ function gameScreen() {
   }
 
   // Update and draw each tractor
-  for (let i = 0; i < tractors.length; i++) {
+  /*for (let i = 0; i < tractors.length; i++) {
     let tractor = tractors[i];
 
     // Update tractor's position
@@ -1131,14 +1131,14 @@ function gameScreen() {
 
     // Draw the tractor at its current position
     drawTractor(tractor.x, tractor.y);
-  }
+  } */
 }
 
-function drawTractor(x, y) {
+/*function drawTractor(x, y) {
   // Drawing code for the tractor
   tractor(x, y);
   // Add additional drawing code as needed for the tractor shape
-}
+} */
 
 //losescreen
 function loseScreen() {
@@ -1150,7 +1150,9 @@ function loseScreen() {
   //Making the text for loosing the game --------------------
   textSize(24);
 
+  push();
   tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
+  pop();
 
   push();
   fill("green");
