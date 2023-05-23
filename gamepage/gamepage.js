@@ -59,13 +59,13 @@ function mouseClicked() {
     // Check if the click happened on the start page
     if (mouseX > 100 && mouseX < 200 && mouseY > 100 && mouseY < 200) {
       animal = "chicken";
-      page = "game"; // Switch to the game page
+      state = "game"; // Switch to the game page
     } else if (mouseX > 250 && mouseX < 350 && mouseY > 250 && mouseY < 450) {
       animal = "pig";
-      page = "game"; // Switch to the game page
+      state = "game"; // Switch to the game page
     } else if (mouseX > 260 && mouseX < 360 && mouseY > 260 && mouseY < 360) {
       animal = "sheep";
-      page = "game"; // Switch to the game page
+      state = "game"; // Switch to the game page
     } else {
       animal = "none";
     }
@@ -1024,9 +1024,12 @@ function jump() {
   //counting jumps
   executionCount++;
 
-  const desiredExecutionCount = 5;
+  const desiredExecutionCount = 4;
+  let state;
+
   if (executionCount === desiredExecutionCount) {
-    console.log("The function has been executed 5 times.");
+    console.log("The function has been executed 74 times.");
+    state = "win";
   }
 }
 
