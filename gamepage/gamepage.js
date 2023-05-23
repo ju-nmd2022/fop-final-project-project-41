@@ -30,8 +30,8 @@ let hayX = 600;
 let hayY = -438;
 let hayS = 1;
 
-let tractorX = 400;
-let tractorY = 150;
+let tractorX = 300;
+let tractorY = 120;
 let tractorS = 0.6;
 
 let chickenX = 200;
@@ -1077,9 +1077,16 @@ function gameScreen() {
   hay((hayS = 0.5), rotate(0.18));
   hayY = hayY + 1;
   hayX = hayX - 1;
-  /*tractor();
+  //tractor();
+
+  tractor(tractorX, tractorY);
+  tractor(tractorX + 40, tractorY - 200);
+  tractor(tractorX + 600, tractorY - 200);
+  tractor(tractorX, tractorY, scale(-1, 1));
+  tractor(tractorX + 600, tractorY - 400);
+  tractor(tractorX + 1300, tractorY - 800);
   tractorY = tractorY + 1;
-  tractorX = tractorX - 3; */
+  tractorX = tractorX - 3;
   chickenY = chickenY + 1;
   barn(rotate(-0.1));
   barnY = barnY + 1;
