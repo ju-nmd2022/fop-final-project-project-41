@@ -1234,6 +1234,14 @@ function draw() {
   } else if (state === "win") {
     winScreen();
   }
+
+  // How to check if the distance is too short and then you will loose-----------------
+  let distance = int(dist(chickenX, chickenY, tractorX, tractorY));
+
+  if (distance < 50) {
+    console.log("Points are far apart!");
+  }
+
   if (
     mouseIsPressed &&
     mouseX > 400 &&
