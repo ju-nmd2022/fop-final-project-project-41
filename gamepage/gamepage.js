@@ -1075,7 +1075,6 @@ function gameScreen() {
   roads();
   roadsY += 1;
   hay((hayS = 0.5), rotate(0.18));
-  hay;
   hayY = hayY + 1;
   hayX = hayX - 1;
   tractor();
