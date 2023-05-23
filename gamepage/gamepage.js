@@ -96,7 +96,7 @@ function roads() {
   pop();
 }
 
-function hay(x, y) {
+function hay(hayX, hayY) {
   // HAY FLOATING IN WATER
   push();
   fill(244, 204, 140);
@@ -1075,18 +1075,35 @@ function gameScreen() {
 
   roadsY += 1;
   hay(rotate(0.18));
-  hay(hayX, hayY);
   hay(hayX + 400, hayY - 638);
+  hay(hayX + 1000, hayY - 1038);
+  hay(hayX + 1200, hayY - 1238);
+  hay(hayX + 1900, hayY - 1838);
+  hay(hayX + 2400, hayY - 2438);
+  hay(hayX + 2900, hayY - 2838);
+  hay(hayX + 2750, hayY - 3038);
   hayY = hayY + 1;
   hayX = hayX - 1;
   tractor();
 
   tractor(tractorX, tractorY);
-  tractor(tractorX + 40, tractorY - 200);
   tractor(tractorX + 600, tractorY - 200);
-  tractor(tractorX, tractorY);
-  tractor(tractorX + 600, tractorY - 400);
-  tractor(tractorX + 1300, tractorY - 800);
+  tractor(tractorX + 800, tractorY - 400);
+  tractor(tractorX + 1400, tractorY - 400);
+  tractor(tractorX + 2000, tractorY - 800);
+  tractor(tractorX + 2500, tractorY - 800);
+  tractor(tractorX + 4100, tractorY - 1400);
+  tractor(tractorX + 4450, tractorY - 1400);
+  tractor(tractorX + 4600, tractorY - 1600);
+  tractor(tractorX + 4900, tractorY - 1600);
+  tractor(tractorX + 6000, tractorY - 2000);
+  tractor(tractorX + 6600, tractorY - 2000);
+  tractor(tractorX + 5900, tractorY - 2200);
+  tractor(tractorX + 6400, tractorY - 2200);
+  tractor(tractorX + 6900, tractorY - 2200);
+  tractor(tractorX + 7300, tractorY - 2600);
+  tractor(tractorX + 7600, tractorY - 2600);
+
   tractorY = tractorY + 1;
   tractorX = tractorX - 3;
   pigY = pigY + 1;
@@ -1240,7 +1257,7 @@ function draw() {
   // How to check if the distance is too short and then you will loose-----------------
   let distance = int(dist(chickenX, chickenY, tractorX, tractorY));
 
-  if (distance > 20) {
+  if (distance < 20) {
     console.log("Points are far apart!");
   }
 
