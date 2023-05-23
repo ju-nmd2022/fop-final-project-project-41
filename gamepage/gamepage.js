@@ -26,8 +26,8 @@ let animal = "none";
 let roadsX = 200;
 let roadsY = 200;
 
-let hayX = 600;
-let hayY = -438;
+let hayX = 200;
+let hayY = 200;
 let hayS = 0.5;
 
 let tractorX = 300;
@@ -96,7 +96,7 @@ function roads() {
   pop();
 }
 
-function hay() {
+function hay(x, y) {
   // HAY FLOATING IN WATER
   push();
   fill(244, 204, 140);
@@ -1024,7 +1024,7 @@ function jump() {
   //counting jumps
   executionCount++;
 
-  const desiredExecutionCount = 4;
+  const desiredExecutionCount = 10;
 
   if (executionCount === desiredExecutionCount) {
     console.log("The function has been executed 74 times.");
@@ -1072,11 +1072,13 @@ function gameScreen() {
   createCanvas(600, 560);
   background(107, 142, 35);
   roads();
+
   roadsY += 1;
   hay(rotate(0.18));
-  hay(hayX - 100, hayY + 900);
+  hay(hayX, hayY);
+  hay(hayX + 400, hayY - 638);
   hayY = hayY + 1;
-  hayX = hayX - 0.6;
+  hayX = hayX - 1;
   tractor();
 
   tractor(tractorX, tractorY);
@@ -1185,8 +1187,6 @@ function winScreen() {
   textSize(24);
   text("You won the game, congrats!", 130, 120);
 
-  tractor((tractorX = 570), (tractorY = 240), (tractorS = 1.5));
-
   push();
   fill("green");
   strokeWeight(0);
@@ -1240,7 +1240,7 @@ function draw() {
   // How to check if the distance is too short and then you will loose-----------------
   let distance = int(dist(chickenX, chickenY, tractorX, tractorY));
 
-  if (distance < 50) {
+  if (distance > 20) {
     console.log("Points are far apart!");
   }
 
