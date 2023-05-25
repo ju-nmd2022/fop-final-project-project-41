@@ -2,9 +2,22 @@ function setup() {
   createCanvas(1024, 768);
   frameRate(30);
   state = "start";
+  isGameActive = true;
 
-  //for loop to draw multiple tractors
-  /*for (let i = 0.75; i < 3; i++) {
+  chickenX = 200;
+  chickenY = 200;
+  chickenS = 1;
+
+  pigX = 200;
+  pigY = 200;
+  pigS = 1;
+
+  sheepX = 200;
+  sheepY = 200;
+}
+
+//for loop to draw multiple tractors
+/*for (let i = 0.75; i < 3; i++) {
     let tractorX = i * 100;
     let tractorY = i * 200;
     let tractorSpeed = 1;
@@ -13,7 +26,6 @@ function setup() {
 
     tractors.push(tractor);
   } */
-}
 
 background(107, 142, 35);
 
@@ -1192,6 +1204,10 @@ function loseScreen() {
     image(sweaterImage, 150, 440, image1.width * 0.27, image1.height * 0.27);
     text("You were hit by the tractor and turned into a sweater!", 130, 120);
   }
+
+  if (keyIsDown(BACKSPACE)) {
+    setup();
+  }
 }
 
 function winScreen() {
@@ -1213,9 +1229,14 @@ function winScreen() {
   textSize(30);
   text("Play Again", 453, 585);
   pop();
+
+  if (keyIsDown(BACKSPACE)) {
+    setup();
+  }
 }
 
 function draw() {
+  clear();
   if (state === "start") {
     startScreen(); // Check if the click happened on the start page
     if (
@@ -1250,38 +1271,47 @@ function draw() {
     }
   } else if (state === "game") {
     gameScreen();
+
+    // Check if the game needs to be reset
+    if (gameNeedsReset()) {
+      resetGame();
+    }
   } else if (state === "win") {
     winScreen();
   }
+}
 
-  // How to check if the distance is too short and then you will loose-----------------
-  let distance = int(dist(chickenX, chickenY, tractorX, tractorY));
+function gameNeedsReset() {
+  // Add your condition to determine if the game needs to be reset
+  // For example, check if the player wins or loses based on the current state
+  // Return true if the game needs to be reset, otherwise return false
 
-  if (distance < 20) {
-    console.log("Points are far apart!");
-  }
-
-  if (
-    mouseIsPressed &&
-    mouseX > 400 &&
-    mouseX < 600 &&
-    mouseY > 550 &&
-    mouseY < 650
-  ) {
-    state = "start";
-  } else if (state === "lose") {
-    loseScreen();
-  }
-  if (
-    mouseIsPressed &&
-    mouseX > 400 &&
-    mouseX < 600 &&
-    mouseY > 550 &&
-    mouseY < 650
-  ) {
-    state = "start";
+  // Example: Reset the game if the player wins or loses
+  if (state === "win" || state === "lose") {
+    return true;
+  } else {
+    return false;
   }
 }
+
+function resetGame() {
+  // Reset the necessary variables to their initial values
+  if (animal === "chicken") {
+    chickenX = 200;
+    chickenY = 200;
+    chickenS = 1;
+  } else if (animal === "pig") {
+    pigX = 200;
+    pigY = 200;
+    pigS = 1;
+  } else if (animal === "sheep") {
+    sheepX = 200;
+    sheepY = 200;
+  }
+  console.clear();
+}
+
+// Rest of your code...
 
 //got help from checking if the button was clicked from chatGPT------
 
