@@ -1036,11 +1036,12 @@ function jump() {
   //counting jumps
   executionCount++;
 
-  const desiredExecutionCount = 10;
+  const desiredExecutionCount = 20;
 
   if (executionCount === desiredExecutionCount) {
     console.log("The function has been executed 74 times.");
     state = "win";
+    executionCount = 0;
   }
 }
 
@@ -1204,6 +1205,7 @@ function loseScreen() {
     image(sweaterImage, 150, 440, image1.width * 0.27, image1.height * 0.27);
     text("You were hit by the tractor and turned into a sweater!", 130, 120);
   }
+  executionCount = 0;
 
   if (keyIsDown(BACKSPACE)) {
     setup();
