@@ -1036,7 +1036,7 @@ function jump() {
   //counting jumps
   executionCount++;
 
-  const desiredExecutionCount = 20;
+  const desiredExecutionCount = 12;
 
   if (executionCount === desiredExecutionCount) {
     console.log("The function has been executed 74 times.");
@@ -1132,18 +1132,21 @@ function gameScreen() {
     if (targetChickenY < -250 || targetChickenY > 280) {
       console.log("state");
       state = "lose";
+      executionCount = 0;
     }
   } else if (animal === "pig") {
     pig(pigX, pigY, pigS);
     if (targetPigY < -250 || targetPigY > 280) {
       console.log("state");
       state = "lose";
+      executionCount = 0;
     }
   } else if (animal === "sheep") {
     sheep(sheepX, sheepY, sheepS);
     if (targetSheepY < -250 || targetSheepY > 280) {
       console.log("state");
       state = "lose";
+      executionCount = 0;
     }
   }
 
@@ -1207,8 +1210,8 @@ function loseScreen() {
   }
   executionCount = 0;
 
-  if (keyIsDown(BACKSPACE)) {
-    setup();
+  if (keyIsDown("BACKSPACE")) {
+    resetGame();
   }
 }
 
@@ -1233,7 +1236,7 @@ function winScreen() {
   pop();
 
   if (keyIsDown(BACKSPACE)) {
-    setup();
+    resetGame();
   }
 }
 
@@ -1284,10 +1287,6 @@ function draw() {
 }
 
 function gameNeedsReset() {
-  // Add your condition to determine if the game needs to be reset
-  // For example, check if the player wins or loses based on the current state
-  // Return true if the game needs to be reset, otherwise return false
-
   // Example: Reset the game if the player wins or loses
   if (state === "win" || state === "lose") {
     return true;
@@ -1297,20 +1296,30 @@ function gameNeedsReset() {
 }
 
 function resetGame() {
+  state = "start";
+
+  frameRate(30);
+  isGameActive = true;
   // Reset the necessary variables to their initial values
   if (animal === "chicken") {
     chickenX = 200;
     chickenY = 200;
     chickenS = 1;
+    targetChickenY = chickenY + 100; // Add this line to reset the targetChickenY variable
   } else if (animal === "pig") {
     pigX = 200;
     pigY = 200;
     pigS = 1;
+    targetPigY = pigY + 100; // Add this line to reset the targetPigY variable
   } else if (animal === "sheep") {
     sheepX = 200;
     sheepY = 200;
+    sheepS = 1;
+    targetSheepY = sheepY + 100; // Add this line to reset the targetSheepY variable
   }
-  console.clear();
+
+  console.log("RESTART GAME");
+  // Reset any other necessary variables
 }
 
 // Rest of your code...
