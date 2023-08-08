@@ -988,7 +988,7 @@ let button;
 let image1, image2, image3;
 let logo;
 let backgroundImage2;
-let tractors = [];
+//let tractors = [];
 
 //executionCount variable and functionality also obtained from chatGPT-----
 let executionCount = 0;
@@ -1097,8 +1097,8 @@ function gameScreen() {
   hay(hayX + 2750, hayY - 3038);
   hayY = hayY + 1;
   hayX = hayX - 1;
-  tractor();
 
+  tractor();
   tractor(tractorX, tractorY);
   tractor(tractorX + 600, tractorY - 200);
   tractor(tractorX + 800, tractorY - 400);
@@ -1284,8 +1284,8 @@ function draw() {
   } else if (state === "win") {
     winScreen();
   }
-}
 
+<<<<<<< HEAD
 function gameNeedsReset() {
   // Example: Reset the game if the player wins or loses
   if (state === "win" || state === "lose") {
@@ -1316,23 +1316,53 @@ function resetGame() {
     sheepY = 200;
     sheepS = 1;
     targetSheepY = 0; // Add this line to reset the targetSheepY variable
+=======
+  function gameNeedsReset() {
+    // Reset the game if the player wins or loses
+    if (state === "win" || state === "lose") {
+      return true;
+    } else {
+      return false;
+    }
+>>>>>>> 20e2b93642d3d636bc5013a57f63d79037bbcb26
   }
 
-  console.log("RESTART GAME");
-  // Reset any other necessary variables
+  // How to check if the distance is too short and then you will loose-----------------
+
+  let distance = int(dist(targetChickenY, tractorX, tractorY));
+
+  if (distance < 20) {
+    console.log("Points are far apart!");
+  }
+
+  function resetGame() {
+    if (state === "lose") {
+      loseScreen();
+    } else if (state === "win") {
+      winScreen();
+    }
+
+    frameRate(30);
+    //isGameActive = true;
+    // Reset the necessary variables to their initial values
+    if (animal === "chicken") {
+      chickenX = 200;
+      chickenY = 200;
+      chickenS = 1;
+      targetChickenY = chickenY + 100; // Add this line to reset the targetChickenY variable
+    } else if (animal === "pig") {
+      pigX = 200;
+      pigY = 200;
+      pigS = 1;
+      targetPigY = pigY + 100; // Add this line to reset the targetPigY variable
+    } else if (animal === "sheep") {
+      sheepX = 200;
+      sheepY = 200;
+      sheepS = 1;
+      targetSheepY = sheepY + 100; // Add this line to reset the targetSheepY variable
+    }
+
+    console.log("RESTART GAME");
+    // Reset any other necessary variables
+  }
 }
-
-// Rest of your code...
-
-//got help from checking if the button was clicked from chatGPT------
-
-/*(state === "start") {
-} else if (state === "game" && targetChickenY < -250) {
-  console.log("state");
-  state = "lose";
-} else if (state === "game" && targetChickenY > 280) {
-  console.log("other state");
-  state = "lose";
-} else if (keyIsDown(13) && (state === "lose" || state === "win")) {
-  state = "game";
-} */
