@@ -1242,50 +1242,51 @@ function winScreen() {
 
 function draw() {
   clear();
-  if (state === "start") {
-    startScreen(); // Check if the click happened on the start page
-    if (
-      mouseIsPressed &&
-      mouseX > 100 &&
-      mouseX < 350 &&
-      mouseY > 200 &&
-      mouseY < 400
-    ) {
-      animal = "chicken";
-      state = "game"; // Switch to the game state
-    } else if (
-      mouseIsPressed &&
-      mouseX > 400 &&
-      mouseX < 600 &&
-      mouseY > 200 &&
-      mouseY < 400
-    ) {
-      animal = "pig";
-      state = "game"; // Switch to the game state
-    } else if (
-      mouseIsPressed &&
-      mouseX > 650 &&
-      mouseX < 900 &&
-      mouseY > 200 &&
-      mouseY < 400
-    ) {
-      animal = "sheep";
-      state = "game"; // Switch to the game state
-    } else {
-      animal = "none";
-    }
-  } else if (state === "game") {
-    gameScreen();
-
-    // Check if the game needs to be reset
-    if (gameNeedsReset()) {
-      resetGame();
-    }
-  } else if (state === "win") {
-    winScreen();
+}
+if (state === "start") {
+  startScreen(); // Check if the click happened on the start page
+  if (
+    mouseIsPressed &&
+    mouseX > 100 &&
+    mouseX < 350 &&
+    mouseY > 200 &&
+    mouseY < 400
+  ) {
+    animal = "chicken";
+    state = "game"; // Switch to the game state
+  } else if (
+    mouseIsPressed &&
+    mouseX > 400 &&
+    mouseX < 600 &&
+    mouseY > 200 &&
+    mouseY < 400
+  ) {
+    animal = "pig";
+    state = "game"; // Switch to the game state
+  } else if (
+    mouseIsPressed &&
+    mouseX > 650 &&
+    mouseX < 900 &&
+    mouseY > 200 &&
+    mouseY < 400
+  ) {
+    animal = "sheep";
+    state = "game"; // Switch to the game state
+  } else {
+    animal = "none";
   }
+} else if (state === "game") {
+  gameScreen();
 
-<<<<<<< HEAD
+  // Check if the game needs to be reset
+  if (gameNeedsReset()) {
+    resetGame();
+  }
+} else if (state === "win") {
+  winScreen();
+}
+
+HEAD;
 function gameNeedsReset() {
   // Example: Reset the game if the player wins or loses
   if (state === "win" || state === "lose") {
@@ -1316,15 +1317,15 @@ function resetGame() {
     sheepY = 200;
     sheepS = 1;
     targetSheepY = 0; // Add this line to reset the targetSheepY variable
-=======
-  function gameNeedsReset() {
-    // Reset the game if the player wins or loses
+
+    function gameNeedsReset() {
+      // Reset the game if the player wins or loses
+    }
     if (state === "win" || state === "lose") {
       return true;
     } else {
       return false;
     }
->>>>>>> 20e2b93642d3d636bc5013a57f63d79037bbcb26
   }
 
   // How to check if the distance is too short and then you will loose-----------------
