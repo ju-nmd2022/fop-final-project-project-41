@@ -1297,7 +1297,7 @@ function gameNeedsReset() {
 
 function resetGame() {
   state = "start";
-
+  executionCount = 0;
   frameRate(30);
   isGameActive = true;
   // Reset the necessary variables to their initial values
@@ -1305,17 +1305,17 @@ function resetGame() {
     chickenX = 200;
     chickenY = 200;
     chickenS = 1;
-    targetChickenY = chickenY + 100; // Add this line to reset the targetChickenY variable
+    targetChickenY = 0; // Add this line to reset the targetChickenY variable
   } else if (animal === "pig") {
     pigX = 200;
     pigY = 200;
     pigS = 1;
-    targetPigY = pigY + 100; // Add this line to reset the targetPigY variable
+    targetPigY = 0; // Add this line to reset the targetPigY variable
   } else if (animal === "sheep") {
     sheepX = 200;
     sheepY = 200;
     sheepS = 1;
-    targetSheepY = sheepY + 100; // Add this line to reset the targetSheepY variable
+    targetSheepY = 0; // Add this line to reset the targetSheepY variable
   }
 
   console.log("RESTART GAME");
