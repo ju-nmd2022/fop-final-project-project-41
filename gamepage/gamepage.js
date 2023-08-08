@@ -1242,85 +1242,52 @@ function winScreen() {
 
 function draw() {
   clear();
-}
-if (state === "start") {
-  startScreen(); // Check if the click happened on the start page
-  if (
-    mouseIsPressed &&
-    mouseX > 100 &&
-    mouseX < 350 &&
-    mouseY > 200 &&
-    mouseY < 400
-  ) {
-    animal = "chicken";
-    state = "game"; // Switch to the game state
-  } else if (
-    mouseIsPressed &&
-    mouseX > 400 &&
-    mouseX < 600 &&
-    mouseY > 200 &&
-    mouseY < 400
-  ) {
-    animal = "pig";
-    state = "game"; // Switch to the game state
-  } else if (
-    mouseIsPressed &&
-    mouseX > 650 &&
-    mouseX < 900 &&
-    mouseY > 200 &&
-    mouseY < 400
-  ) {
-    animal = "sheep";
-    state = "game"; // Switch to the game state
-  } else {
-    animal = "none";
-  }
-} else if (state === "game") {
-  gameScreen();
-
-  // Check if the game needs to be reset
-  if (gameNeedsReset()) {
-    resetGame();
-  }
-} else if (state === "win") {
-  winScreen();
-}
-
-HEAD;
-function gameNeedsReset() {
-  // Example: Reset the game if the player wins or loses
-  if (state === "win" || state === "lose") {
-    return true;
-  } else {
-    return false;
-  }
-}
-
-function resetGame() {
-  state = "start";
-  executionCount = 0;
-  frameRate(30);
-  isGameActive = true;
-  // Reset the necessary variables to their initial values
-  if (animal === "chicken") {
-    chickenX = 200;
-    chickenY = 200;
-    chickenS = 1;
-    targetChickenY = 0; // Add this line to reset the targetChickenY variable
-  } else if (animal === "pig") {
-    pigX = 200;
-    pigY = 200;
-    pigS = 1;
-    targetPigY = 0; // Add this line to reset the targetPigY variable
-  } else if (animal === "sheep") {
-    sheepX = 200;
-    sheepY = 200;
-    sheepS = 1;
-    targetSheepY = 0; // Add this line to reset the targetSheepY variable
-
-    function gameNeedsReset() {
-      // Reset the game if the player wins or loses
+  if (state === "start") {
+    startScreen(); // Check if the click happened on the start page
+    if (
+      mouseIsPressed &&
+      mouseX > 100 &&
+      mouseX < 350 &&
+      mouseY > 200 &&
+      mouseY < 400
+    ) {
+      animal = "chicken";
+      state = "game"; // Switch to the game state
+    } else if (
+      mouseIsPressed &&
+      mouseX > 400 &&
+      mouseX < 600 &&
+      mouseY > 200 &&
+      mouseY < 400
+    ) {
+      animal = "pig";
+      state = "game"; // Switch to the game state
+    } else if (
+      mouseIsPressed &&
+      mouseX > 650 &&
+      mouseX < 900 &&
+      mouseY > 200 &&
+      mouseY < 400
+    ) {
+      animal = "sheep";
+      state = "game"; // Switch to the game state
+    } else {
+      animal = "none";
     }
+  } else if (state === "game") {
+    gameScreen();
+
+    // Check if the game needs to be reset
+    if (gameNeedsReset()) {
+      resetGame();
+    }
+  } else if (state === "win") {
+    winScreen();
+  }
+
+  //HEAD;
+  function gameNeedsReset() {
+    // Example: Reset the game if the player wins or loses
     if (state === "win" || state === "lose") {
       return true;
     } else {
@@ -1328,42 +1295,74 @@ function resetGame() {
     }
   }
 
-  // How to check if the distance is too short and then you will loose-----------------
-
-  let distance = int(dist(targetChickenY, tractorX, tractorY));
-
-  if (distance < 20) {
-    console.log("Points are far apart!");
-  }
-
   function resetGame() {
-    if (state === "lose") {
-      loseScreen();
-    } else if (state === "win") {
-      winScreen();
-    }
-
+    state = "start";
+    executionCount = 0;
     frameRate(30);
-    //isGameActive = true;
+    isGameActive = true;
     // Reset the necessary variables to their initial values
     if (animal === "chicken") {
       chickenX = 200;
       chickenY = 200;
       chickenS = 1;
-      targetChickenY = chickenY + 100; // Add this line to reset the targetChickenY variable
+      targetChickenY = 0; // Add this line to reset the targetChickenY variable
     } else if (animal === "pig") {
       pigX = 200;
       pigY = 200;
       pigS = 1;
-      targetPigY = pigY + 100; // Add this line to reset the targetPigY variable
+      targetPigY = 0; // Add this line to reset the targetPigY variable
     } else if (animal === "sheep") {
       sheepX = 200;
       sheepY = 200;
       sheepS = 1;
-      targetSheepY = sheepY + 100; // Add this line to reset the targetSheepY variable
-    }
+      targetSheepY = 0; // Add this line to reset the targetSheepY variable
 
-    console.log("RESTART GAME");
-    // Reset any other necessary variables
+      //function gameNeedsReset() {
+      // Reset the game if the player wins or loses
+      // }if (state === "win" || state === "lose") {
+      //   return true;
+      //  } else {
+      //   return false;
+      //  }
+      //  }
+
+      // How to check if the distance is too short and then you will loose-----------------
+
+      let distance = int(dist(targetChickenY, tractorX, tractorY));
+
+      if (distance < 20) {
+        console.log("Points are far apart!");
+      }
+
+      //function resetGame() {
+      // if (state === "lose") {
+      //   loseScreen();
+      // } else if (state === "win") {
+      //    winScreen();
+      //  }
+
+      frameRate(30);
+      //isGameActive = true;
+      // Reset the necessary variables to their initial values
+      if (animal === "chicken") {
+        chickenX = 200;
+        chickenY = 200;
+        chickenS = 1;
+        targetChickenY = chickenY + 100; // Add this line to reset the targetChickenY variable
+      } else if (animal === "pig") {
+        pigX = 200;
+        pigY = 200;
+        pigS = 1;
+        targetPigY = pigY + 100; // Add this line to reset the targetPigY variable
+      } else if (animal === "sheep") {
+        sheepX = 200;
+        sheepY = 200;
+        sheepS = 1;
+        targetSheepY = sheepY + 100; // Add this line to reset the targetSheepY variable
+      }
+
+      console.log("RESTART GAME");
+      // Reset any other necessary variables
+    }
   }
 }
