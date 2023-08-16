@@ -982,12 +982,12 @@ let targetSheepY;
 let velocity = 1;
 let acceleration = 0.1;
 let state = "start";
-let isGameActive = false;
 let backgroundImage;
 let button;
 let image1, image2, image3;
 let logo;
 let backgroundImage2;
+let isGameActive = false;
 //let tractors = [];
 
 //executionCount variable and functionality also obtained from chatGPT-----
