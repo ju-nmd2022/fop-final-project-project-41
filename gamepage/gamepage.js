@@ -1285,8 +1285,9 @@ function draw() {
     winScreen();
   }
 
+  //HEAD;
   function gameNeedsReset() {
-    // Reset the game if the player wins or loses
+    // Example: Reset the game if the player wins or loses
     if (state === "win" || state === "lose") {
       return true;
     } else {
@@ -1294,42 +1295,74 @@ function draw() {
     }
   }
 
-  // How to check if the distance is too short and then you will loose-----------------
-
-  let distance = int(dist(targetChickenY, tractorX, tractorY));
-
-  if (distance < 20) {
-    console.log("Points are far apart!");
-  }
-
   function resetGame() {
-    if (state === "lose") {
-      loseScreen();
-    } else if (state === "win") {
-      winScreen();
-    }
-
+    state = "start";
+    executionCount = 0;
     frameRate(30);
-    //isGameActive = true;
+    isGameActive = true;
     // Reset the necessary variables to their initial values
     if (animal === "chicken") {
       chickenX = 200;
       chickenY = 200;
       chickenS = 1;
-      targetChickenY = chickenY + 100; // Add this line to reset the targetChickenY variable
+      targetChickenY = 0; // Add this line to reset the targetChickenY variable
     } else if (animal === "pig") {
       pigX = 200;
       pigY = 200;
       pigS = 1;
-      targetPigY = pigY + 100; // Add this line to reset the targetPigY variable
+      targetPigY = 0; // Add this line to reset the targetPigY variable
     } else if (animal === "sheep") {
       sheepX = 200;
       sheepY = 200;
       sheepS = 1;
-      targetSheepY = sheepY + 100; // Add this line to reset the targetSheepY variable
-    }
+      targetSheepY = 0; // Add this line to reset the targetSheepY variable
 
-    console.log("RESTART GAME");
-    // Reset any other necessary variables
+      //function gameNeedsReset() {
+      // Reset the game if the player wins or loses
+      // }if (state === "win" || state === "lose") {
+      //   return true;
+      //  } else {
+      //   return false;
+      //  }
+      //  }
+
+      // How to check if the distance is too short and then you will loose-----------------
+
+      let distance = int(dist(targetChickenY, tractorX, tractorY));
+
+      if (distance < 20) {
+        console.log("Points are far apart!");
+      }
+
+      //function resetGame() {
+      // if (state === "lose") {
+      //   loseScreen();
+      // } else if (state === "win") {
+      //    winScreen();
+      //  }
+
+      frameRate(30);
+      //isGameActive = true;
+      // Reset the necessary variables to their initial values
+      if (animal === "chicken") {
+        chickenX = 200;
+        chickenY = 200;
+        chickenS = 1;
+        targetChickenY = chickenY + 100; // Add this line to reset the targetChickenY variable
+      } else if (animal === "pig") {
+        pigX = 200;
+        pigY = 200;
+        pigS = 1;
+        targetPigY = pigY + 100; // Add this line to reset the targetPigY variable
+      } else if (animal === "sheep") {
+        sheepX = 200;
+        sheepY = 200;
+        sheepS = 1;
+        targetSheepY = sheepY + 100; // Add this line to reset the targetSheepY variable
+      }
+
+      console.log("RESTART GAME");
+      // Reset any other necessary variables
+    }
   }
 }
